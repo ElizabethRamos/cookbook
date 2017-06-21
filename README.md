@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ElizabethRamos/cookbook.svg?branch=master)](https://travis-ci.org/ElizabethRamos/cookbook)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
