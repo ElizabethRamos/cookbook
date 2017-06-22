@@ -2,11 +2,23 @@
 <p>Bem-vindo ao maior livro de receitas online</p>
 
   <% @recipes.each do |recipe| %>
-  <h1><%= recipe.title %></h1>
+  <h1><%= link_to recipe.title %></h1>
   <ul>
+    <p><%= recipe.recipe_type %></p>
     <li> <%= recipe.recipe_type %></li>
+    <h3>'Detalhes'</h3>
+    <p><%= recipe.cuisine %></p>
     <li><%= recipe.cuisine %></li>
+    <p><%= recipe.difficulty %></li>
     <li><%= recipe.difficulty %></li>
+    <p><%= recipe.cook_time %> minutos</p>
     <li><%= recipe.cook_time %> minutos</li>
+    <h3>'Ingredientes'</h3>
+    <p><%= recipe.ingredients %></p>
+    <h3>'Como Preparar'</h3>
+    <p><%= recipe.method %>
+
   </ul>
   <% end %>
+
+ <%= link_to 'Voltar', root_path %>
