@@ -68,4 +68,4 @@ feature 'Visitor view recipes by cuisine' do
     expect(page).not_to have_content(recipe.title)
     expect(page).to have_content('Nenhuma receita encontrada para este tipo de cozinha')
   end
-end 
+end

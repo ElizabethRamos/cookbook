@@ -1,18 +1,26 @@
-<h1>CookBook</h1>
-<p>Bem-vindo ao maior livro de receitas online</p>
+  <h1>CookBook</h1>
+  <p>Bem-vindo ao maior livro de receitas online</p>
 
-<%= link_to 'Enviar uma receita', new_recipe_path%>
+  <%= link_to 'Enviar uma receita', new_recipe_path%>
 
-  <% @recipes.each do |recipe| %>
-  <h1><%= link_to recipe.title, recipe_path(recipe) %></h1>
-  <ul>
-    <li><%= recipe.recipe_type %></li>
-    <li><%= recipe.cuisine.name %></li>
-    <li><%= recipe.difficulty %></li>
-    <li><%= recipe.cook_time %> minutos</li>
-    <li><%= recipe.method %></li>
-    <li><%= recipe.ingredients %></li>
-  </ul>
-  <% end %>
+    <% @recipes.each do |recipe| %>
+    <h1><%= link_to recipe.title, recipe_path(recipe) %></h1>
+    <ul>
+      <li><%= recipe.recipe_type %></li>
+      <li><%= link_to recipe.cuisine.name, cuisine_path(recipe.cuisine) %></li>
+      <li><%= recipe.difficulty %></li>
+      <li><%= recipe.cook_time %> minutos</li>
+      <li><%= recipe.method %></li>
+      <li><%= recipe.ingredients %></li>
+    </ul>
+    <% end %>
 
-<%= link_to 'Voltar', root_path %>
+
+    <% @cuisines.each do |cuisine| %>
+      <% if @cuisines.empty? %>
+      Nenhuma receita encontrada para este tipo de cozinha
+      <% end %>
+    <% end %>
+
+
+  <%= link_to 'Voltar', root_path %>

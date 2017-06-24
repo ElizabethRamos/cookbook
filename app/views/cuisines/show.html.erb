@@ -1,0 +1,11 @@
+<h1><%= @cuisine.name %></h1>
+
+<% @cuisine.recipes.each do |recipe| %>
+<h1><%= recipe.title %></h1>
+<ul>
+  <li><%= recipe.recipe_type %></li>
+  <li><%= recipe.cuisine.name %></li>
+  <li><%= recipe.difficulty %></li>
+  <li><%= recipe.cook_time %> minutos</li>
+</ul>
+<% end %>
