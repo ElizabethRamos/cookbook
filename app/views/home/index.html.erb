@@ -7,7 +7,7 @@
     <h1><%= link_to recipe.title, recipe_path(recipe) %></h1>
     <ul>
       <li><%= recipe.recipe_type %></li>
-      <li><%= link_to recipe.cuisine.name, cuisine_path(recipe.cuisine) %></li>
+      <li><%= recipe.cuisine.name %></li>
       <li><%= recipe.difficulty %></li>
       <li><%= recipe.cook_time %> minutos</li>
       <li><%= recipe.method %></li>
@@ -15,12 +15,8 @@
     </ul>
     <% end %>
 
-
     <% @cuisines.each do |cuisine| %>
-      <% if @cuisines.empty? %>
-      Nenhuma receita encontrada para este tipo de cozinha
-      <% end %>
+      <%= link_to cuisine.name, cuisine_path(cuisine) %>
     <% end %>
-
 
   <%= link_to 'Voltar', root_path %>
