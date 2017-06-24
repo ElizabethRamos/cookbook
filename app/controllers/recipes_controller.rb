@@ -1,13 +1,14 @@
 class RecipesController < ApplicationController
 
   def new
+    @cuisines = Cuisine.all
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.save
-    redirect_to @recipe
-
+    if @recipe.save
+      redirect_to @recipe
+    end
   end
 
   def show
@@ -17,6 +18,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_type, :cuisine, :difficulty, :cook_time, :ingredients, :method)
+    params.require(:recipe).permit(:title, :recipe_type, :cuisine_id, :difficulty, :cook_time, :ingredients, :method)
   end
 end
