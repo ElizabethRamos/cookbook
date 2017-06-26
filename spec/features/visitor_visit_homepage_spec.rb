@@ -11,7 +11,8 @@ feature 'Visitor visit homepage' do
   scenario 'and view recipe' do
     #cria os dados necessários
     cuisine = Cuisine.create(name: 'Brasileira')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                           cuisine: cuisine, difficulty: 'Médio', 
                           ingredients: 'Cenoura, acucar, oleo e chocolate',
                           method: 'Misturar tudo, bater e assar',
@@ -22,7 +23,7 @@ feature 'Visitor visit homepage' do
 
     # expectativas do usuário após a ação
     expect(page).to have_css('h1', text: recipe.title)
-    expect(page).to have_css('li', text: recipe.recipe_type)
+    expect(page).to have_css('li', text: recipe.recipe_type.name)
     expect(page).to have_css('li', text: recipe.cuisine.name)
     expect(page).to have_css('li', text: recipe.difficulty)
     expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
@@ -31,13 +32,15 @@ feature 'Visitor visit homepage' do
   scenario 'and view recipes list' do
     #cria os dados necessários
     cuisine = Cuisine.create(name: 'Brasileira')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                           cuisine: cuisine, difficulty: 'Médio',
                           ingredients: 'Cenoura, acucar, oleo e chocolate',
                           method: 'Misturar tudo, bater e assar',
                           cook_time: 60)
 
-    another_recipe = Recipe.create(title: 'Feijoada', recipe_type: 'Prato Principal',
+    another_recipe_type = RecipeType.create(name: 'Prato Principal')
+    another_recipe = Recipe.create(title: 'Feijoada', recipe_type: another_recipe_type,
                           cuisine: cuisine, difficulty: 'Difícil',
                           ingredients: 'Feijao, paio, carne seca',
                           method: 'Cozinhar o feijao e refogar com as carnes já preparadas',
@@ -48,13 +51,13 @@ feature 'Visitor visit homepage' do
 
     # expectativas do usuário após a ação
     expect(page).to have_css('h1', text: recipe.title)
-    expect(page).to have_css('li', text: recipe.recipe_type)
+    expect(page).to have_css('li', text: recipe.recipe_type.name)
     expect(page).to have_css('li', text: recipe.cuisine.name)
     expect(page).to have_css('li', text: recipe.difficulty)
     expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
 
     expect(page).to have_css('h1', text: another_recipe.title)
-    expect(page).to have_css('li', text: another_recipe.recipe_type)
+    expect(page).to have_css('li', text: another_recipe.recipe_type.name)
     expect(page).to have_css('li', text: another_recipe.cuisine.name)
     expect(page).to have_css('li', text: another_recipe.difficulty)
     expect(page).to have_css('li', text: "#{another_recipe.cook_time} minutos")

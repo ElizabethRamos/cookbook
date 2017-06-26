@@ -8,8 +8,8 @@
   </div>
 
   <div>
-    <%= f.label :recipe_type, 'Tipo da Receita' %>
-    <%= f.text_field :recipe_type %>
+    <%= f.label :recipe_type_id, 'Tipo da Receita' %>
+    <%= f.collection_select(:recipe_type_id, @recipe_types, :id, :name) %>
   </div>
 
   <div>

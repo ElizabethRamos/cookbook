@@ -3,4 +3,5 @@ class Recipe < ApplicationRecord
             :method, :cuisine_id,
             presence: true
   belongs_to :cuisine
+  belongs_to :recipe_type
 end
