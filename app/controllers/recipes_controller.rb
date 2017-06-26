@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 
   def new
+    @recipe = Recipe.new
     @cuisines = Cuisine.all
   end
 
@@ -8,6 +9,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
       redirect_to @recipe
+    else
+      flash[:error] = 'Você deve informar todos os dados da receita' 
+      @cuisines = Cuisine.all
+      render :new
     end
   end
 

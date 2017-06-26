@@ -13,6 +13,8 @@ feature 'Visitor visit homepage' do
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
                           cuisine: cuisine, difficulty: 'Médio', 
+                          ingredients: 'Cenoura, acucar, oleo e chocolate',
+                          method: 'Misturar tudo, bater e assar',
                           cook_time: 60)
 
     # simula a ação do usuário
@@ -31,10 +33,14 @@ feature 'Visitor visit homepage' do
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
                           cuisine: cuisine, difficulty: 'Médio',
+                          ingredients: 'Cenoura, acucar, oleo e chocolate',
+                          method: 'Misturar tudo, bater e assar',
                           cook_time: 60)
 
     another_recipe = Recipe.create(title: 'Feijoada', recipe_type: 'Prato Principal',
                           cuisine: cuisine, difficulty: 'Difícil',
+                          ingredients: 'Feijao, paio, carne seca',
+                          method: 'Cozinhar o feijao e refogar com as carnes já preparadas',
                           cook_time: 90)
 
     # simula a ação do usuário

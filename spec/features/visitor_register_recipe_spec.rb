@@ -29,4 +29,23 @@ feature 'Visitor register recipe' do
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text:  'Misturar tudo e servir. Adicione limão a gosto.')
   end
+
+  scenario 'and must fill in all fields' do
+    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    Cuisine.create(name: 'Arabe')
+    # simula a ação do usuário
+    visit root_path
+    click_on 'Enviar uma receita'
+
+    fill_in 'Título', with: ''
+    fill_in 'Tipo da Receita', with: ''
+    fill_in 'Dificuldade', with: ''
+    fill_in 'Tempo de Preparo', with: ''
+    fill_in 'Ingredientes', with: ''
+    fill_in 'Como Preparar', with: ''
+    click_on 'Enviar'
+
+
+    expect(page).to have_content('Você deve informar todos os dados da receita')
+  end
 end
