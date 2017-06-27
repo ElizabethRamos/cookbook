@@ -18,7 +18,6 @@ class RecipeTypesController < ApplicationController
     end
   end
 
-
 private
 
   def recipe_type_params

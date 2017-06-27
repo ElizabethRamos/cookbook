@@ -1,4 +1,6 @@
-<%= form_for @recipe, url: recipes_path do |f| %>
+<%= flash[:error] %>
+
+<%= form_for @recipe, url: recipe_path do |f| %>
 
  <div>
     <%= f.label :title, 'Título' %>

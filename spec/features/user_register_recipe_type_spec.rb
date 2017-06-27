@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User register recipe_type' do
+feature 'User register recipe_jype' do
   scenario 'successfully' do
 
     visit new_recipe_type_path
