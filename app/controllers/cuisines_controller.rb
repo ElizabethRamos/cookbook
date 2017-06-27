@@ -1,7 +1,7 @@
 class CuisinesController <ApplicationController
+  before_action :find_cuisine, only: [:show]
 
   def show
-    @cuisine = Cuisine.find(params[:id])
   end
 
   def new
@@ -21,5 +21,9 @@ class CuisinesController <ApplicationController
   private
   def cuisine_params
     params.require(:cuisine).permit(:name)
+  end
+
+  def find_cuisine
+    @cuisine = Cuisine.find params[:id]
   end
 end
