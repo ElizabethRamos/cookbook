@@ -1,3 +1,4 @@
+
 require 'rails_helper'
 
 feature 'Visitor view recipes by type' do
