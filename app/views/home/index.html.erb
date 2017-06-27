@@ -4,19 +4,9 @@
   <%= link_to 'Enviar uma receita', new_recipe_path%>
 
     <% @recipes.each do |recipe| %>
-    <h1><%= link_to recipe.title, recipe_path(recipe) %></h1>
-    <ul>
-      <li><%= recipe.recipe_type.name %></li>
-      <li><%= recipe.cuisine.name %></li>
-      <li><%= recipe.difficulty %></li>
-      <li><%= recipe.cook_time %> minutos</li>
-      <li><%= recipe.method %></li>
-      <li><%= recipe.ingredients %></li>
-    </ul>
+    <%= render recipe %>
     <% end %>
 
     <% @cuisines.each do |cuisine| %>
       <%= link_to cuisine.name, cuisine_path(cuisine) %>
     <% end %>
-
-  <%= link_to 'Voltar', root_path %>
