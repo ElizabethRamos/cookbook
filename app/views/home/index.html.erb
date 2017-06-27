@@ -7,6 +7,14 @@
     <%= render recipe %>
     <% end %>
 
+<h2>Busca de Receitas por cozinha</h2>
+
     <% @cuisines.each do |cuisine| %>
       <%= link_to cuisine.name, cuisine_path(cuisine) %>
     <% end %>
+
+<h3>Busde de receitas por tipo</h3>
+
+<% @recipe_types.each do |recipe_type| %>
+  <%= link_to recipe_type.name, recipe_type_path(recipe_type) %>
+<% end %>

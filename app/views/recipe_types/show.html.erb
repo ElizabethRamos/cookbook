@@ -1,0 +1,9 @@
+<h1><%= @recipe_type.name %></h1>
+
+<% if @recipe_type.recipes.empty? %>
+Nenhuma receita encontrada para este tipo de receitas
+<% end %>
+
+<%= @recipe_type.recipes.each do |recipe| %>
+<%= render recipe %>
+<% end %>

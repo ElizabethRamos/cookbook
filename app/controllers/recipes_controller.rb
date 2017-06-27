@@ -12,8 +12,8 @@ class RecipesController < ApplicationController
     if @recipe.valid?
       redirect_to @recipe
     else
-      flash[:error] = 'Você deve informar todos os dados da receita'
       set_collections
+      flash[:error] = 'Você deve informar todos os dados da receita'
       render :new
     end
   end
