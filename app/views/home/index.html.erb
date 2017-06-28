@@ -3,22 +3,23 @@
 
   <%= link_to 'Enviar uma receita', new_recipe_path%>
 
-    <% @recipes.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
     <%= render recipe %>
-    <% end %>
+  <% end %>
 
 <h2>Busca de Receitas por cozinha</h2>
 
-    <% @cuisines.each do |cuisine| %>
-    <ul>
-      <li><%= link_to cuisine.name, cuisine_path(cuisine) %></li>
-    </ul>
-    <% end %>
+<ul class="cuisines">
+<% @cuisines.each do |cuisine| %>
+  <li><%= link_to cuisine.name, cuisine_path(cuisine) %></li>
+<% end %>
+</ul>
+
 
 <h3>Busca de receitas por tipo</h3>
 
-  <% @recipe_types.each do |recipe_type| %>
-  <ul class="recipe_type">
-    <li><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></li>
-  </ul>
+<ul class="recipe_type">
+<% @recipe_types.each do |recipe_type| %>
+  <li><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></li>
 <% end %>
+</ul>
