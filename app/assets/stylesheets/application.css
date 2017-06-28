@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.recipe_type li {
+  list-style-type: none;
+}
