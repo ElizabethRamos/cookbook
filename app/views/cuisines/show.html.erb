@@ -1,7 +1,7 @@
-<h1><%= @cuisine.name %></h1>
+<h1>Cozinha: <%= @cuisine.name %></h1>
 
 <% if @cuisine.recipes.empty? %>
-Nenhuma receita encontrada para este tipo de cozinha
+  Nenhuma receita encontrada para este tipo de cozinha
 <% end %>
 
 <% @cuisine.recipes.each do |recipe| %>

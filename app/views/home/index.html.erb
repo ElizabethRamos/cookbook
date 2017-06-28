@@ -10,11 +10,15 @@
 <h2>Busca de Receitas por cozinha</h2>
 
     <% @cuisines.each do |cuisine| %>
-      <%= link_to cuisine.name, cuisine_path(cuisine) %>
+    <ul>
+      <li><%= link_to cuisine.name, cuisine_path(cuisine) %></li>
+    </ul>
     <% end %>
 
-<h3>Busde de receitas por tipo</h3>
+<h3>Busca de receitas por tipo</h3>
 
-<% @recipe_types.each do |recipe_type| %>
-  <%= link_to recipe_type.name, recipe_type_path(recipe_type) %>
+  <% @recipe_types.each do |recipe_type| %>
+  <ul>
+    <li><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></li>
+  </ul>
 <% end %>

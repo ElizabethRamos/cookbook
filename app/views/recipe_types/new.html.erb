@@ -1,8 +1,11 @@
 <%= flash[:error] %>
+<h1>Novo tipo de receita</h1>
 
 <%= form_for @recipe_type, url: recipe_types_path do |f| %>
+<div>
   <%= f.label :name, 'Nome' %>
   <%= f.text_field :name %>
+</div>
 
   <%= f.submit 'Enviar' %>
 <% end %>
