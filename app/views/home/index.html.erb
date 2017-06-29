@@ -1,11 +1,11 @@
-  <h1>CookBook</h1>
-  <p>Bem-vindo ao maior livro de receitas online</p>
+<h1>CookBook</h1>
+<p>Bem-vindo ao maior livro de receitas online</p>
 
-  <%= link_to 'Enviar uma receita', new_recipe_path%>
+<%= link_to 'Enviar uma receita', new_recipe_path%>
 
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-  <% end %>
+<% @recipes.each do |recipe| %>
+  <%= render recipe %>
+<% end %>
 
 <h2>Busca de Receitas por cozinha</h2>
 
