@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.last(6)
     @cuisines = Cuisine.all
     @recipe_types = RecipeType.all
   end
@@ -10,5 +10,12 @@ class HomeController < ApplicationController
     @search = params[:search_text]
     @recipes = Recipe.where("title = ?", params[:search_text])
     render :search_results
+  end
+
+  def all_recipes
+    @recipes = Recipe.all
+    @cuisines = Cuisine.all
+    @recipe_types = RecipeType.all
+    render 'index'
   end
 end

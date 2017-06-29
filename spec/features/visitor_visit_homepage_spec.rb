@@ -62,4 +62,5 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('li', text: another_recipe.difficulty)
     expect(page).to have_css('li', text: "#{another_recipe.cook_time} minutos")
   end
+
 end
