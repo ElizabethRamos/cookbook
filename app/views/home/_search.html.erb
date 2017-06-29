@@ -1,0 +1,8 @@
+<%= form_tag search_path do  %>
+  <div>
+    <%= label_tag :search_text, 'Busca' %>
+    <%= text_field_tag :search_text %>
+  </div>
+
+  <%= submit_tag 'Buscar' %>
+<% end %>
