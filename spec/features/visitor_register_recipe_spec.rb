@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Visitor register recipe' do
   scenario 'successfully' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    #cria os dados necessários
     Cuisine.create(name: 'Arabe')
     RecipeType.create(name: 'Entrada')
     RecipeType.create(name: 'Prato Principal')

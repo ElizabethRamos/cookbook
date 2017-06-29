@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User update recipe' do
   scenario 'successfully' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    #cria os dados necessários
     arabian_cuisine = Cuisine.create(name: 'Arabe')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
 
