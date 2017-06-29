@@ -1,0 +1,10 @@
+<h1>Novo tipo de cozinha</h1>
+
+<%= form_for @cuisine, url: cuisine_path do |f| %>
+
+ <%= f.label :name, 'Nome' %>
+ <%= f.text_field :name %>
+
+ <%= f.submit 'Enviar' %>
+
+<% end %>
