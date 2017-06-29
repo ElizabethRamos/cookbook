@@ -1,3 +1,10 @@
 <h1> Resultado da busca por: <%= @recipe.title %> </h1>
 
-<%= render partial: 'recipes/recipe' %>
+<ul>
+  <li><%= @recipe.recipe_type.name %></li>
+  <li><%= @recipe.cuisine.name %></li>
+  <li><%= @recipe.difficulty %></li>
+  <li><%= @recipe.cook_time %> minutos</li>
+  <li><%= @recipe.method %></li>
+  <li><%= @recipe.ingredients %></li>
+</ul>
