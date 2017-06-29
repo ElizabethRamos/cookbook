@@ -5,15 +5,7 @@
 <% end %>
 
 <% @recipes.each do |recipe| %>
-<ul>
-  <li><%= link_to recipe.title, recipe_path(recipe) %></li>
-  <li><%= recipe.recipe_type.name %></li>
-  <li><%= recipe.cuisine.name %></li>
-  <li><%= recipe.difficulty %></li>
-  <li><%= recipe.cook_time %> minutos</li>
-  <li><%= recipe.method %></li>
-  <li><%= recipe.ingredients %></li>
-</ul>
+  <%= render recipe %></li>
 <% end %>
 
 <%= render 'home/search' %>
