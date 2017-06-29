@@ -7,7 +7,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    @recipe = Recipe.where("title = ?", params[:search_text]).first
+    @search = params[:search_text]
+    @recipes = Recipe.where("title = ?", params[:search_text])
     render :search_results
   end
 end
