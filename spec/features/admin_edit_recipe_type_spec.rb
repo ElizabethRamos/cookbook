@@ -18,7 +18,7 @@ feature 'User update recipe' do
   end
 
 scenario 'and all fields must be filled' do
-  
+
   brazilian_cuisine = RecipeType.create(name: 'Sobremesa')
 
   visit root_path
@@ -30,6 +30,6 @@ scenario 'and all fields must be filled' do
 
   click_on 'Enviar'
 
-  expect(page).to have_content('Você deve informar todos os dados do tipo de receita')
+  expect(page).to have_content('Você deve informar todos os dados do novo tipo de receita')
  end
 end

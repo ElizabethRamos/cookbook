@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
+before_action :set_collections, only: [:index, :all_recipes]
 
   def index
     @recipes = Recipe.last(6)
-    @cuisines = Cuisine.all
-    @recipe_types = RecipeType.all
+
   end
 
   def search
@@ -14,8 +14,13 @@ class HomeController < ApplicationController
 
   def all_recipes
     @recipes = Recipe.all
-    @cuisines = Cuisine.all
-    @recipe_types = RecipeType.all
     render 'index'
   end
+
+private
+
+def set_collections
+  @cuisines = Cuisine.all
+  @recipe_types = RecipeType.all
+end
 end
