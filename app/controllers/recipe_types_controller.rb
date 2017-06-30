@@ -14,8 +14,8 @@ class RecipeTypesController < ApplicationController
      if @recipe_type.valid?
        redirect_to @recipe_type
     else
-      flash[:error] = 'Você deve informar o nome do tipo de receita'
-      render 'new'
+      flash[:error_recipe_type] = 'Você deve informar o nome do tipo de receita'
+      render :new
     end
   end
 
@@ -28,7 +28,7 @@ class RecipeTypesController < ApplicationController
       redirect_to @recipe_type
     else
       set_collections
-      flash[:error] = 'Você deve informar o nome do tipo de receita'
+      flash[:error_recipe_type2] = 'Você deve informar o nome do novo tipo de receita'
       render :edit
     end
   end
