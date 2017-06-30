@@ -1,5 +1,6 @@
 class RecipeTypesController < ApplicationController
-  before_action :find_recipe_type, only: [:show]
+  before_action :find_recipe_type, only: [:show, :edit, :update]
+  before_action :set_collections, only: [:edit, :update]
 
   def show
   end
@@ -18,6 +19,20 @@ class RecipeTypesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @recipe_type.update(recipe_type_params)
+    if @recipe_type.valid?
+      redirect_to @recipe_type
+    else
+      set_collections
+      flash[:error] = 'Você deve informar o nome do tipo de receita'
+      render :edit
+    end
+  end
+
 private
 
   def recipe_type_params
@@ -26,5 +41,9 @@ private
 
   def find_recipe_type
     @recipe_type = RecipeType.find params[:id]
+  end
+
+  def set_collections
+    @recipe_types = RecipeType.all
   end
 end

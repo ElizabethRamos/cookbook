@@ -1,0 +1,9 @@
+<h1>Novo tipo de receita</h1>
+
+<%= form_for @recipe_type, url: recipe_type_path do |f| %>
+
+<%= f.label :name, 'Nome' %>
+<%= f.text_field :name %>
+
+<%= f.submit 'Enviar' %>
+<% end %>

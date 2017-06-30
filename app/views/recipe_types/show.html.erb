@@ -7,3 +7,5 @@
 <%= @recipe_type.recipes.each do |recipe| %>
   <%= render recipe %>
 <% end %>
+
+<%= link_to 'Editar', edit_recipe_type_path(@recipe_type) %>
