@@ -29,7 +29,7 @@ class CuisinesController <ApplicationController
       redirect_to @cuisine
     else
       set_collections
-      flash[:error_message] = 'Você deve informar o nome do novo tipo de cozinha'
+      flash[:error_message] = 'Você deve informar todos os dados do tipo da cozinha'
       render :edit
     end
   end
