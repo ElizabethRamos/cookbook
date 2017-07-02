@@ -28,15 +28,17 @@
       <% if flash[:error] %>
          <%= flash[:error] %>
       <% end %>
+
       <%= yield %>
     </div>
   </body>
-</html>
+
 
 <footer class="text-center footer">
   <div class="color-footer">
-    <hr>
-    <p>Social recipes |Copyright 2014</p>
-   </hr>
- </div>
+      <hr>
+      <p>Social recipes |Copyright 2014</p>
+    </hr>
+  </div>
 </footer>
+</html>
