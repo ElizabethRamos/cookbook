@@ -1,6 +1,4 @@
-<h1> Insira os dados da nova receita: </h1>
-
-<%= form_for @recipe, url: recipes_path do |f| %>
+<%= form_for @recipe do |f| %>
 
 <div>
   <%= f.label :title, 'Título' %>
