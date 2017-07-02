@@ -1,27 +1,29 @@
-<h1>CookBook</h1>
+<aside>
+  <div class="cuisines-box">
+    <h3>Cozinha</h3>
+    <ul class="cuisines">
+      <% @cuisines.each do |cuisine| %>
+        <li><%= link_to cuisine.name, cuisine_path(cuisine) %></li>
+      <% end %>
+    </ul>
+  </div>
 
-<p>Bem-vindo ao maior livro de receitas online</p>
+  <div class="recipe-type-box">
+    <h3>Tipo</h3>
+    <ul class="recipe_type">
+      <% @recipe_types.each do |recipe_type| %>
+        <li><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></li>
+      <% end %>
+    </ul>
+  </div>
+</aside>
 
-<%= link_to 'Enviar uma receita', new_recipe_path%>
-<%= link_to 'Ver todas receitas', all_recipes_path %>
-<%= render 'search' %>
-
-<% @recipes.each do |recipe| %>
-<%= render recipe %>
-<% end %>
-
-<h2>Busca de Receitas por cozinha</h2>
-
-<ul class="cuisines">
-<% @cuisines.each do |cuisine| %>
-  <li><%= link_to cuisine.name, cuisine_path(cuisine) %></li>
-<% end %>
-</ul>
-
-<h3>Busca de receitas por tipo</h3>
-
-<ul class="recipe_type">
-<% @recipe_types.each do |recipe_type| %>
-  <li><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></li>
-<% end %>
-</ul>
+<main>
+  <div class="recipes">
+    <div>
+    <% @recipes.each do |recipe| %>
+     <%= render recipe %>
+    <% end %>
+   </div>
+</div>
+</main>

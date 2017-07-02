@@ -1,8 +1,7 @@
-<%= form_tag search_path do  %>
-  <div>
+<div class="navbar-form navbar-right">
+  <%= form_tag search_path do %>
     <%= label_tag :search_text, 'Busca' %>
     <%= text_field_tag :search_text %>
-  </div>
-
-  <%= submit_tag 'Buscar' %>
-<% end %>
+    <%= submit_tag 'Buscar' %>
+  <% end %>
+</div>

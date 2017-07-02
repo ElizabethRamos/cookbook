@@ -9,9 +9,34 @@
   </head>
 
   <body>
-    <% if flash[:error] %>
-       <%= flash[:error] %>
-    <% end %>
-    <%= yield %>
+    <header class="navbar"> <!-- fixed top -->
+      <div class="container">
+        <h1>Social recipes</h1>
+        <nav>
+          <%= render 'home/search' %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Enviar uma receita', new_recipe_path %></li>
+            <li><%= link_to 'Ver todas receitas', all_recipes_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <br clear="all">
+    <div class="container">
+      <p>Bem-vindo ao maior livro de receitas online</p>
+
+      <% if flash[:error] %>
+         <%= flash[:error] %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
+
+<footer class="text-center footer">
+  <div class="color-footer">
+    <hr>
+    <p>Social recipes |Copyright 2014</p>
+   </hr>
+ </div>
+</footer>

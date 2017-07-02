@@ -4,7 +4,7 @@ feature 'Visitor visit homepage' do
   scenario 'successfully' do
     visit root_path
 
-    expect(page).to have_css('h1', text: 'CookBook')
+    expect(page).to have_css('h1', text: 'Social recipes')
     expect(page).to have_css('p', text: 'Bem-vindo ao maior livro de receitas online')
   end
 
@@ -13,7 +13,7 @@ feature 'Visitor visit homepage' do
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                          cuisine: cuisine, difficulty: 'Médio', 
+                          cuisine: cuisine, difficulty: 'Médio',
                           ingredients: 'Cenoura, acucar, oleo e chocolate',
                           method: 'Misturar tudo, bater e assar',
                           cook_time: 60)
