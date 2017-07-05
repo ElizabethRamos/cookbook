@@ -1,3 +1,9 @@
+<% if @cuisine.errors.any? %>
+  <%= @cuisine.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger" role="alert"> <%= error %> </div>
+  <% end %>
+<% end %>
+
 <h1>Novo tipo de cozinha</h1>
 
 <%= render 'form' %>

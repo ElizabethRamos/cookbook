@@ -33,4 +33,18 @@ feature 'User update recipe' do
     expect(page).to have_content('Você deve informar todos os dados do tipo da cozinha')
    end
 
+   scenario 'and have not duplicated cuisine name' do
+        cuisine_name = Cuisine.create(name: 'Italiana')
+        other_name =  Cuisine.create(name: 'Baiana')
+
+        visit root_path
+         click_on 'Italiana'
+         click_on 'Editar'
+
+         fill_in 'Nome', with: 'Baiana'
+
+         click_on 'Enviar'
+
+        expect(page).to have_content('Ja existe esse nome de cozinha')
+    end 
 end
