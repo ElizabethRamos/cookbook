@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   get 'search_results', to: 'home#search_results'
   get 'all_recipes', to:'home#all_recipes'
   get 'recipes', to: 'recipes#new'
-  get 'my_recipes', to: 'recipes#my_recipes'
-  resources :recipes, only: [:new, :create, :show, :edit, :update]
+  resources :recipes, only: [:new, :create, :show, :edit, :update] do
+    collection do
+      get 'my_recipes'
+    end
+  end
   resources :cuisines, only: [:new, :create, :show, :edit, :update]
   resources :recipe_types, only: [:new, :create, :show, :edit, :update]
 end

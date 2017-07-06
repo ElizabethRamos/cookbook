@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
   before_action :set_collections, only: [:new, :edit, :update]
   before_action :find_recipe, only: [:edit, :show, :update]
-
 
   def new
     @recipe = Recipe.new
@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.valid?
+      @recipe.save
       redirect_to @recipe
     else
       set_collections

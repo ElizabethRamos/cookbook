@@ -27,7 +27,6 @@ feature 'Visitor register recipe' do
     fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão a gosto.'
     click_on 'Enviar'
 
-
     expect(page).to have_css('h1', text: 'Tabule')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: 'Entrada')
@@ -51,7 +50,7 @@ feature 'Visitor register recipe' do
     fill_in 'Email', with: 'maria@campus.com'
     fill_in 'Senha', with: '12345678'
     click_on 'Enviar'
-    
+
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: ''
