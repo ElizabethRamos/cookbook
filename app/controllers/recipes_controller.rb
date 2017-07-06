@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
     if @recipe.valid?
       redirect_to @recipe
     else
@@ -34,6 +34,11 @@ class RecipesController < ApplicationController
         render :edit
       end
    end
+
+ def my_recipes
+   @recipes = Recipe.where(user: current_user.id)
+ end
+
 
   private
 
