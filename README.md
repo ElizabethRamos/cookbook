@@ -7,12 +7,15 @@ https://github.com/thoughtbot/paperclip
 
 - Ruby 5.1.1
 
-- Dependências:
- · RSpec
- · Capybara
+- RSpec
+ 
+- Capybara
 
 - Bootstrap:
  https://github.com/twbs/bootstrap-sass
+
+ - Devise
+ https://github.com/plataformatec/devise
 
 - Travis.ci:
 [![Build Status](https://travis-ci.org/ElizabethRamos/cookbook.svg?branch=master)](https://travis-ci.org/ElizabethRamos/cookbook)
