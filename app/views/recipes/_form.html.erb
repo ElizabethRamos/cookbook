@@ -35,5 +35,10 @@
   <%= f.text_field :method %>
 </div>
 
+ <div>
+  <%= f.label :photo, 'Foto da receita' %>
+  <%= f.file_field :photo, accept: 'image/png,image/gif,image/jpeg' %>
+</div>
+
   <%= f.submit 'Enviar' %>
 <% end %>

@@ -10,6 +10,8 @@
 <p><%= @recipe.ingredients %></p>
 <h3>'Como Preparar'</h3>
 <p><%= @recipe.method %>
+<h3>Foto da receita: </h3>
+<p><%= image_tag @recipe.photo.url %>  
 
 
 <%= link_to 'Editar', edit_recipe_path(@recipe) %>
