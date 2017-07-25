@@ -5,10 +5,12 @@ To run this project, you will need:
  - Paperclip:
 https://github.com/thoughtbot/paperclip
 
-- Ruby 5.1.1
+- Rails 5.1.1
+
+- Ruby 2.3.4
 
 - RSpec
- 
+
 - Capybara
 
 - Bootstrap:
