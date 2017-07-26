@@ -4,3 +4,6 @@ rvm:
   - 2.4.1
 
 cache: bundler
+
+before_script:
+  - rake rubocop

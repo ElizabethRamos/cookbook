@@ -2,20 +2,22 @@ require 'rails_helper'
 
 feature 'User update recipe' do
   scenario 'successfully' do
-    #cria os dados necessários
+    # cria os dados necessários
     user = User.create(email: 'maria@campus.com', password: '12345678')
     arabian_cuisine = Cuisine.create(name: 'Arabe')
-    brazilian_cuisine = Cuisine.create(name: 'Brasileira')
+    Cuisine.create(name: 'Brasileira')
 
-    appetizer_type = RecipeType.create(name: 'Entrada')
+    RecipeType.create(name: 'Entrada')
     main_type = RecipeType.create(name: 'Prato Principal')
-    dessert_type = RecipeType.create(name: 'Sobremesa')
+    RecipeType.create(name: 'Sobremesa')
 
-    recipe = Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
-                          cuisine: arabian_cuisine, difficulty: 'Médio',
-                          cook_time: 50,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+    Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
+                  cuisine: arabian_cuisine, difficulty: 'Médio',
+                  cook_time: 50,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  method: 'Cozinhe a cenoura, corte em pedaços
+                           pequenos, misture com o restante dos ingredientes',
+                  user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -27,7 +29,8 @@ feature 'User update recipe' do
     select 'Sobremesa', from: 'Tipo da Receita'
     fill_in 'Dificuldade', with: 'Médio'
     fill_in 'Tempo de Preparo', with: '45'
-    fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e chocolate'
+    fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e
+chocolate'
     fill_in 'Como Preparar', with: 'Faça um bolo e uma cobertura de chocolate'
 
     click_on 'Enviar'
@@ -38,25 +41,29 @@ feature 'User update recipe' do
     expect(page).to have_css('p', text: 'Brasileira')
     expect(page).to have_css('p', text: 'Médio')
     expect(page).to have_css('p', text: '45 minutos')
-    expect(page).to have_css('p', text:  'Cenoura, farinha, ovo, oleo de soja e chocolate')
-    expect(page).to have_css('p', text: 'Faça um bolo e uma cobertura de chocolate')
+    expect(page).to have_css('p', text: "Cenoura, farinha, ovo, oleo de soja e \
+chocolate")
+    expect(page).to have_css('p', text: "Faça um bolo e uma cobertura de \
+chocolate")
   end
 
   scenario 'and all fields must be filled' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessários, nesse caso não vamos criar dados no banco
     arabian_cuisine = Cuisine.create(name: 'Arabe')
-    brazilian_cuisine = Cuisine.create(name: 'Brasileira')
+    Cuisine.create(name: 'Brasileira')
     user = User.create(email: 'maria@campus.com', password: '12345678')
 
-    appetizer_type = RecipeType.create(name: 'Entrada')
+    RecipeType.create(name: 'Entrada')
     main_type = RecipeType.create(name: 'Prato Principal')
-    dessert_type = RecipeType.create(name: 'Sobremesa')
+    RecipeType.create(name: 'Sobremesa')
 
-    recipe = Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
-                          cuisine: arabian_cuisine, difficulty: 'Médio',
-                          cook_time: 50,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+    Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
+                  cuisine: arabian_cuisine, difficulty: 'Médio',
+                  cook_time: 50,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  method: 'Cozinhe a cenoura, corte em pedaços pequenos,
+                  misture com o restante dos ingredientes',
+                  user: user)
 
     # simula a ação do usuário
     visit root_path
