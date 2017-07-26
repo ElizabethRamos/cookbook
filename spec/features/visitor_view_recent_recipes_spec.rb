@@ -1,19 +1,18 @@
 require 'rails_helper'
 
 feature 'Visitor view only recent recipes on home page' do
-
   scenario 'successfully' do
-    #cria os dados necessários
+    # cria os dados necessários
     old_recipe = create_recipe('Old Recipe')
     5.times { create_recipe('Another Recipes') }
     user = User.create(email: 'maria@campus.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
     recent_recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                          cuisine: cuisine, difficulty: 'Médio',
-                          ingredients: 'Cenoura, acucar, oleo e chocolate',
-                          method: 'Misturar tudo, bater e assar',
-                          cook_time: 60, user: user)
+                                  cuisine: cuisine, difficulty: 'Médio',
+                                  ingredients: 'Cenoura, acucar, oleo e chocolate',
+                                  method: 'Misturar tudo, bater e assar',
+                                  cook_time: 60, user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -28,17 +27,17 @@ feature 'Visitor view only recent recipes on home page' do
   end
 
   scenario 'and then view all the recipes' do
-    #cria os dados necessários
+    # cria os dados necessários
     old_recipe = create_recipe('Old Recipe')
     6.times { create_recipe('Another Recipes') }
     user = User.create(email: 'maria@campus.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
     recent_recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                          cuisine: cuisine, difficulty: 'Médio',
-                          ingredients: 'Cenoura, acucar, oleo e chocolate',
-                          method: 'Misturar tudo, bater e assar',
-                          cook_time: 60, user: user)
+                                  cuisine: cuisine, difficulty: 'Médio',
+                                  ingredients: 'Cenoura, acucar, oleo e chocolate',
+                                  method: 'Misturar tudo, bater e assar',
+                                  cook_time: 60, user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -55,10 +54,7 @@ feature 'Visitor view only recent recipes on home page' do
     expect(page).to have_css('li', text: old_recipe.cuisine.name)
     expect(page).to have_css('li', text: old_recipe.difficulty)
     expect(page).to have_css('li', text: "#{old_recipe.cook_time} minutos")
-
-
   end
-
 
   def create_recipe(recipe_name)
     user = User.create(email: 'maria@campus.com', password: '12345678')
@@ -69,10 +65,9 @@ feature 'Visitor view only recent recipes on home page' do
                   ingredients: 'Ingredientes em lista',
                   method: 'Passo a passo do preparo',
                   cook_time: 60, user: user)
-
   end
 
-def cuisine_create
-  @recipe ||= Cuisine.create(name: 'Generic Cuisine')
-end
+  def cuisine_create
+    @recipe ||= Cuisine.create(name: 'Generic Cuisine')
+  end
 end

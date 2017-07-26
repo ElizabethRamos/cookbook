@@ -9,15 +9,15 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and view recipe' do
-    #cria os dados necessários
+    # cria os dados necessários
     user = User.create(email: 'maria@campus.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                          cuisine: cuisine, difficulty: 'Médio',
-                          ingredients: 'Cenoura, acucar, oleo e chocolate',
-                          method: 'Misturar tudo, bater e assar',
-                          cook_time: 60, user: user)
+                           cuisine: cuisine, difficulty: 'Médio',
+                           ingredients: 'Cenoura, acucar, oleo e chocolate',
+                           method: 'Misturar tudo, bater e assar',
+                           cook_time: 60, user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -31,22 +31,22 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and view recipes list' do
-    #cria os dados necessários
+    # cria os dados necessários
     user = User.create(email: 'maria@campus.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                          cuisine: cuisine, difficulty: 'Médio',
-                          ingredients: 'Cenoura, acucar, oleo e chocolate',
-                          method: 'Misturar tudo, bater e assar',
-                          cook_time: 60, user: user)
+                           cuisine: cuisine, difficulty: 'Médio',
+                           ingredients: 'Cenoura, acucar, oleo e chocolate',
+                           method: 'Misturar tudo, bater e assar',
+                           cook_time: 60, user: user)
 
     another_recipe_type = RecipeType.create(name: 'Prato Principal')
     another_recipe = Recipe.create(title: 'Feijoada', recipe_type: another_recipe_type,
-                          cuisine: cuisine, difficulty: 'Difícil',
-                          ingredients: 'Feijao, paio, carne seca',
-                          method: 'Cozinhar o feijao e refogar com as carnes já preparadas',
-                          cook_time: 90, user: user)
+                                   cuisine: cuisine, difficulty: 'Difícil',
+                                   ingredients: 'Feijao, paio, carne seca',
+                                   method: 'Cozinhar o feijao e refogar com as carnes já preparadas',
+                                   cook_time: 90, user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -64,5 +64,4 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('li', text: another_recipe.difficulty)
     expect(page).to have_css('li', text: "#{another_recipe.cook_time} minutos")
   end
-
 end

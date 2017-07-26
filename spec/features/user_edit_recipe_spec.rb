@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User update recipe' do
   scenario 'successfully' do
-    #cria os dados necessários
+    # cria os dados necessários
     user = User.create(email: 'maria@campus.com', password: '12345678')
     arabian_cuisine = Cuisine.create(name: 'Arabe')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
@@ -12,10 +12,10 @@ feature 'User update recipe' do
     dessert_type = RecipeType.create(name: 'Sobremesa')
 
     recipe = Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
-                          cuisine: arabian_cuisine, difficulty: 'Médio',
-                          cook_time: 50,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+                           cuisine: arabian_cuisine, difficulty: 'Médio',
+                           cook_time: 50,
+                           ingredients: 'Farinha, açucar, cenoura',
+                           method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -38,12 +38,12 @@ feature 'User update recipe' do
     expect(page).to have_css('p', text: 'Brasileira')
     expect(page).to have_css('p', text: 'Médio')
     expect(page).to have_css('p', text: '45 minutos')
-    expect(page).to have_css('p', text:  'Cenoura, farinha, ovo, oleo de soja e chocolate')
+    expect(page).to have_css('p', text: 'Cenoura, farinha, ovo, oleo de soja e chocolate')
     expect(page).to have_css('p', text: 'Faça um bolo e uma cobertura de chocolate')
   end
 
   scenario 'and all fields must be filled' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessários, nesse caso não vamos criar dados no banco
     arabian_cuisine = Cuisine.create(name: 'Arabe')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
     user = User.create(email: 'maria@campus.com', password: '12345678')
@@ -53,10 +53,10 @@ feature 'User update recipe' do
     dessert_type = RecipeType.create(name: 'Sobremesa')
 
     recipe = Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
-                          cuisine: arabian_cuisine, difficulty: 'Médio',
-                          cook_time: 50,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+                           cuisine: arabian_cuisine, difficulty: 'Médio',
+                           cook_time: 50,
+                           ingredients: 'Farinha, açucar, cenoura',
+                           method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
 
     # simula a ação do usuário
     visit root_path

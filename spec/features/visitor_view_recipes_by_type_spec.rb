@@ -2,7 +2,6 @@
 require 'rails_helper'
 
 feature 'Visitor view recipes by type' do
-
   scenario 'from home page' do
     # cria os dados necessários previamente
     user = User.create(email: 'maria@campus.com', password: '12345678')

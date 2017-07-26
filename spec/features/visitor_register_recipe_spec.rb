@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Visitor register recipe' do
   scenario 'successfully' do
-    #cria os dados necessários
+    # cria os dados necessários
     User.create(email: 'maria@campus.com', password: '12345678')
     Cuisine.create(name: 'Arabe')
     RecipeType.create(name: 'Entrada')
@@ -32,7 +32,7 @@ feature 'Visitor register recipe' do
     expect(page).to have_css('p', text: 'Entrada')
     expect(page).to have_css('p', text: 'Arabe')
     expect(page).to have_css('p', text: 'Fácil')
-    expect(page).to have_css('p', text: "45 minutos")
+    expect(page).to have_css('p', text: '45 minutos')
     expect(page).to have_css('h3', text: 'Ingredientes')
     expect(page).to have_css('p', text: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha')
     expect(page).to have_css('h3', text: 'Como Preparar')
@@ -40,7 +40,7 @@ feature 'Visitor register recipe' do
   end
 
   scenario 'and must fill in all fields' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessários, nesse caso não vamos criar dados no banco
     Cuisine.create(name: 'Arabe')
     User.create(email: 'maria@campus.com', password: '12345678')
     # simula a ação do usuário
@@ -59,7 +59,6 @@ feature 'Visitor register recipe' do
     fill_in 'Ingredientes', with: ''
     fill_in 'Como Preparar', with: ''
     click_on 'Enviar'
-
 
     expect(page).to have_content('Você deve informar todos os dados da receita')
   end

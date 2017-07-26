@@ -2,13 +2,12 @@ require 'rails_helper'
 
 feature 'Owner add photo to recipe' do
   scenario 'sucessfully' do
-
-    #cria os dados
+    # cria os dados
     user = User.create(email: 'eliza@campus.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Arabe')
     recipe_type = RecipeType.create(name: 'Entrada')
 
-    #simula a acao
+    # simula a acao
     visit root_path
 
     click_on 'Login'
@@ -28,13 +27,13 @@ feature 'Owner add photo to recipe' do
     attach_file('Foto da receita', "#{Rails.root}/spec/support/images/tabule.jpg")
     click_on 'Enviar'
 
-    #expectativas
+    # expectativas
     expect(page).to have_css('h1', text: 'Tabule')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: 'Entrada')
     expect(page).to have_css('p', text: 'Arabe')
     expect(page).to have_css('p', text: 'Fácil')
-    expect(page).to have_css('p', text: "45 minutos")
+    expect(page).to have_css('p', text: '45 minutos')
     expect(page).to have_css('h3', text: 'Ingredientes')
     expect(page).to have_css('p', text: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha')
     expect(page).to have_css('h3', text: 'Como Preparar')

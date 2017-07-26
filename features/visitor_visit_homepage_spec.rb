@@ -9,10 +9,10 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and view recipe' do
-    #cria os dados necessários
+    # cria os dados necessários
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
-                          cuisine: 'Brasileira', difficulty: 'Médio', 
-                          cook_time: 60)
+                           cuisine: 'Brasileira', difficulty: 'Médio',
+                           cook_time: 60)
 
     # simula a ação do usuário
     visit root_path
@@ -26,14 +26,14 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and view recipes list' do
-    #cria os dados necessários
+    # cria os dados necessários
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
-                          cuisine: 'Brasileira', difficulty: 'Médio',
-                          cook_time: 60)
+                           cuisine: 'Brasileira', difficulty: 'Médio',
+                           cook_time: 60)
 
     another_recipe = Recipe.create(title: 'Feijoada', recipe_type: 'Prato Principal',
-                          cuisine: 'Brasileira', difficulty: 'Difícil',
-                          cook_time: 90)
+                                   cuisine: 'Brasileira', difficulty: 'Difícil',
+                                   cook_time: 90)
 
     # simula a ação do usuário
     visit root_path

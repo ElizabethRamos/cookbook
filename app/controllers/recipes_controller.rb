@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :set_collections, only: [:new, :edit, :update]
-  before_action :find_recipe, only: [:edit, :show, :update]
+  before_action :set_collections, only: %i[new edit update]
+  before_action :find_recipe, only: %i[edit show update]
 
   def new
     @recipe = Recipe.new
@@ -19,27 +19,24 @@ class RecipesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @recipe.update(recipe_params)
-      if @recipe.valid?
-        redirect_to @recipe
-      else
-        set_collections
-        flash[:error] = 'Você deve informar todos os dados da receita'
-        render :edit
-      end
+    if @recipe.valid?
+      redirect_to @recipe
+    else
+      set_collections
+      flash[:error] = 'Você deve informar todos os dados da receita'
+      render :edit
+    end
    end
 
- def my_recipes
-   @recipes = Recipe.where(user: current_user.id)
- end
-
+  def my_recipes
+    @recipes = Recipe.where(user: current_user.id)
+  end
 
   private
 

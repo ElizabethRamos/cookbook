@@ -1,9 +1,8 @@
-class CuisinesController <ApplicationController
-  before_action :find_cuisine, only: [:show, :edit, :update]
-  before_action :set_collections, only: [:new, :edit, :update]
+class CuisinesController < ApplicationController
+  before_action :find_cuisine, only: %i[show edit update]
+  before_action :set_collections, only: %i[new edit update]
 
-  def show
-  end
+  def show; end
 
   def new
     @cuisine = Cuisine.new
@@ -20,8 +19,7 @@ class CuisinesController <ApplicationController
     end
    end
 
-   def edit
-   end
+  def edit; end
 
   def update
     @cuisine.update(cuisine_params)
@@ -35,6 +33,7 @@ class CuisinesController <ApplicationController
   end
 
   private
+
   def cuisine_params
     params.require(:cuisine).permit(:name)
   end

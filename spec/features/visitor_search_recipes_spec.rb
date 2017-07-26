@@ -15,10 +15,10 @@ feature 'Visitor search for recipes' do
                            method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
 
     another_recipe = Recipe.create(title: 'Salada de cenoura', recipe_type: another_recipe_type,
-                           cuisine: cuisine, difficulty: 'Facil',
-                           cook_time: 60,
-                           ingredients: 'Cenoura e legumes',
-                           method: 'Cozinhe a cenoura, misture com os legumes', user: user)
+                                   cuisine: cuisine, difficulty: 'Facil',
+                                   cook_time: 60,
+                                   ingredients: 'Cenoura e legumes',
+                                   method: 'Cozinhe a cenoura, misture com os legumes', user: user)
 
     # simula a ação do usuário
     visit root_path
