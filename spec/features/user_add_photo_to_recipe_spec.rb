@@ -2,13 +2,12 @@ require 'rails_helper'
 
 feature 'Owner add photo to recipe' do
   scenario 'sucessfully' do
+    # cria os dados
+    User.create(email: 'eliza@campus.com', password: '12345678')
+    Cuisine.create(name: 'Arabe')
+    RecipeType.create(name: 'Entrada')
 
-    #cria os dados
-    user = User.create(email: 'eliza@campus.com', password: '12345678')
-    cuisine = Cuisine.create(name: 'Arabe')
-    recipe_type = RecipeType.create(name: 'Entrada')
-
-    #simula a acao
+    # simula a acao
     visit root_path
 
     click_on 'Login'
@@ -23,22 +22,27 @@ feature 'Owner add photo to recipe' do
     select 'Entrada', from: 'Tipo da Receita'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: '45'
-    fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
-    fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão a gosto.'
-    attach_file('Foto da receita', "#{Rails.root}/spec/support/images/tabule.jpg")
+    fill_in 'Ingredientes', with: "Trigo para quibe, cebola,
+    tomate picado, azeite, salsinha"
+    fill_in 'Como Preparar', with: "Misturar tudo e servir. Adicione
+    limão a gosto."
+    attach_file('Foto da receita',
+                Rails.root.join('spec', 'support', 'images', 'tabule.jpg'))
     click_on 'Enviar'
 
-    #expectativas
+    # expectativas
     expect(page).to have_css('h1', text: 'Tabule')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: 'Entrada')
     expect(page).to have_css('p', text: 'Arabe')
     expect(page).to have_css('p', text: 'Fácil')
-    expect(page).to have_css('p', text: "45 minutos")
+    expect(page).to have_css('p', text: '45 minutos')
     expect(page).to have_css('h3', text: 'Ingredientes')
-    expect(page).to have_css('p', text: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha')
+    expect(page).to have_css('p', text: "Trigo para quibe, cebola, \
+tomate picado, azeite, salsinha")
     expect(page).to have_css('h3', text: 'Como Preparar')
-    expect(page).to have_css('p', text:  'Misturar tudo e servir. Adicione limão a gosto.')
+    expect(page).to have_css('p', text:  "Misturar tudo e servir. Adicione \
+limão a gosto.")
     expect(page).to have_css("img[src*='tabule.jpg']")
   end
 end

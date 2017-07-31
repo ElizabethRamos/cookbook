@@ -12,13 +12,18 @@ feature 'Visitor search for recipes' do
                            cuisine: cuisine, difficulty: 'Médio',
                            cook_time: 60,
                            ingredients: 'Farinha, açucar, cenoura',
-                           method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+                           method: 'Cozinhe a cenoura, corte em pedaços
+                           pequenos, misture com o restante dos ingredientes',
+                           user: user)
 
-    another_recipe = Recipe.create(title: 'Salada de cenoura', recipe_type: another_recipe_type,
-                           cuisine: cuisine, difficulty: 'Facil',
-                           cook_time: 60,
-                           ingredients: 'Cenoura e legumes',
-                           method: 'Cozinhe a cenoura, misture com os legumes', user: user)
+    another_recipe = Recipe.create(title: 'Salada de cenoura',
+                                   recipe_type: another_recipe_type,
+                                   cuisine: cuisine, difficulty: 'Facil',
+                                   cook_time: 60,
+                                   ingredients: 'Cenoura e legumes',
+                                   method: 'Cozinhe a cenoura,
+                                   misture com os legumes',
+                                   user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -26,7 +31,8 @@ feature 'Visitor search for recipes' do
     click_on 'Buscar'
 
     # expectativas do usuário após a ação
-    expect(page).to have_css('h1', text: 'Resultado da busca por: Bolo de cenoura')
+    expect(page).to have_css('h1', text: "Resultado da busca por: \
+Bolo de cenoura")
     expect(page).to have_css('h1', text: recipe.title)
     expect(page).to have_css('li', text: recipe.recipe_type.name)
     expect(page).to have_css('li', text: recipe.cuisine.name)
@@ -45,7 +51,9 @@ feature 'Visitor search for recipes' do
                            cuisine: cuisine, difficulty: 'Médio',
                            cook_time: 60,
                            ingredients: 'Farinha, açucar, cenoura',
-                           method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+                           method: 'Cozinhe a cenoura, corte em pedaços
+                           pequenos, misture com o restante dos ingredientes',
+                           user: user)
 
     # simula a ação do usuário
     visit root_path

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 feature 'Visitor view recipes by cuisine' do
+  my_method = "Cozinhe a cenoura, corte em pedaços pequenos, misture com o \
+  restante dos ingredientes"
 
   scenario 'from home page' do
     # cria os dados necessários previamente
@@ -9,10 +11,10 @@ feature 'Visitor view recipes by cuisine' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
 
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                          cuisine: cuisine, difficulty: 'Médio',
-                          cook_time: 60,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+                           cuisine: cuisine, difficulty: 'Médio',
+                           cook_time: 60,
+                           ingredients: 'Farinha, açucar, cenoura',
+                           method: my_method, user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -32,18 +34,23 @@ feature 'Visitor view recipes by cuisine' do
     user = User.create(email: 'maria@campus.com', password: '12345678')
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
     dessert_recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: dessert_recipe_type,
-                          cuisine: brazilian_cuisine, difficulty: 'Médio',
-                          cook_time: 60,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+    Recipe.create(title: 'Bolo de cenoura', recipe_type: dessert_recipe_type,
+                  cuisine: brazilian_cuisine, difficulty: 'Médio',
+                  cook_time: 60,
+                  ingredients: 'Farinha, açucar, cenoura',
+                  method: my_method, user: user)
 
     italian_cuisine = Cuisine.create(name: 'Italiana')
     main_recipe_type = RecipeType.create(name: 'Prato Principal')
-    italian_recipe = Recipe.create(title: 'Macarrão Carbonara', recipe_type: main_recipe_type,
-                                  cuisine: italian_cuisine, difficulty: 'Difícil',
-                                  cook_time: 30, ingredients: 'Massa, ovos, bacon',
-                                  method: 'Frite o bacon; Cozinhe a massa ate ficar al dent; Misture os ovos e o bacon a massa ainda quente;', user: user)
+    other_method = "Frite o bacon; Cozinhe a massa ate ficar al dent; Misture\
+     os ovos e o bacon a massa ainda quente;"
+    italian_recipe = Recipe.create(title: 'Macarrão Carbonara',
+                                   recipe_type: main_recipe_type,
+                                   cuisine: italian_cuisine,
+                                   difficulty: 'Difícil',
+                                   cook_time: 30,
+                                   ingredients: 'Massa, ovos, bacon',
+                                   method: other_method, user: user)
     # simula a ação do usuário
     visit root_path
     click_on italian_cuisine.name
@@ -62,10 +69,10 @@ feature 'Visitor view recipes by cuisine' do
     brazilian_cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                          cuisine: brazilian_cuisine, difficulty: 'Médio',
-                          cook_time: 60,
-                          ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes', user: user)
+                           cuisine: brazilian_cuisine, difficulty: 'Médio',
+                           cook_time: 60,
+                           ingredients: 'Farinha, açucar, cenoura',
+                           method: my_method, user: user)
 
     italian_cuisine = Cuisine.create(name: 'Italiana')
     # simula a ação do usuário
@@ -74,6 +81,8 @@ feature 'Visitor view recipes by cuisine' do
 
     # expectativas do usuário após a ação
     expect(page).not_to have_content(recipe.title)
-    expect(page).to have_content('Nenhuma receita encontrada para este tipo de cozinha')
+    expect(page).to have_content(
+      'Nenhuma receita encontrada para este tipo de cozinha'
+    )
   end
 end
