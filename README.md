@@ -2,7 +2,13 @@ Hello! :-)
 
 To run this project, you will need:
 
- - Paperclip:
+- Travis.ci:
+[![Build Status](https://travis-ci.org/ElizabethRamos/cookbook.svg?branch=master)](https://travis-ci.org/ElizabethRamos/cookbook)
+
+- Rubocop:
+https://github.com/bbatsov/rubocop
+
+- Paperclip:
 https://github.com/thoughtbot/paperclip
 
 - Rails 5.1.1
@@ -16,8 +22,5 @@ https://github.com/thoughtbot/paperclip
 - Bootstrap:
  https://github.com/twbs/bootstrap-sass
 
- - Devise
+ - Devise:
  https://github.com/plataformatec/devise
-
-- Travis.ci:
-[![Build Status](https://travis-ci.org/ElizabethRamos/cookbook.svg?branch=master)](https://travis-ci.org/ElizabethRamos/cookbook)
