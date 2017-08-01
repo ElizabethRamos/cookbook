@@ -1,7 +1,9 @@
 <div class="navbar-form navbar-right">
-  <%= form_tag search_path do %>
-    <%= label_tag :search_text, 'Busca' %>
-    <%= text_field_tag :search_text %>
-    <%= submit_tag 'Buscar' %>
+  <%= form_tag search_path, method: :get, class: "navbar-form navbar-left" do %>
+    <div class="form-group">
+      <%= label_tag :search_text, 'Busca' %>
+      <%= text_field_tag :search_text, '', placeholder: 'Receita para buscar', class: "form-control" %>
+      <%= submit_tag 'Buscar', class: "btn btn-default" %>
+    </div>
   <% end %>
 </div>

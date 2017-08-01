@@ -4,10 +4,10 @@
   Nenhuma receita encontrada para este tipo de receitas
 <% end %>
 
-<%= @recipe_type.recipes.each do |recipe| %>
+<% @recipe_type.recipes.each do |recipe| %>
   <%= render recipe %>
 <% end %>
 
-<%= link_to 'Editar', edit_recipe_type_path(@recipe_type) %>
+<%= link_to 'Editar', edit_recipe_type_path(@recipe_type), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
 
-<%= link_to 'Voltar', root_path %>
+<%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>

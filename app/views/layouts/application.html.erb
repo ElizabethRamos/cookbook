@@ -9,31 +9,38 @@
   </head>
 
   <body>
-    <header class="navbar"> <!-- fixed top -->
+    <header class="navbar navbar-default"> <!-- fixed top -->
       <div class="container">
+        <div class="navbar-header">
         <h1><%= link_to 'CookBook', root_path %></h1>
-        <nav>
+        </div>
+        <div class="navbar-right">
+          <label class="navbar-text">Bem vindo ao CookBook</label>
           <%= render 'home/search' %>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Enviar uma receita', new_recipe_path %></li>
-            <li><%= link_to 'Ver todas receitas', all_recipes_path %></li>
+            <%= link_to 'Enviar uma receita', new_recipe_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+            <%= link_to 'Ver todas receitas', all_recipes_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
             <% if user_signed_in? %>
-            <p> Ola <%= current_user.email %> </p>
-            <li><%= link_to 'Logout', destroy_user_session_path, method: 'delete'%></li>
-            <li><%= link_to 'Minhas receitas', my_recipes_recipes_path %>
+            <%= link_to 'Minhas receitas', my_recipes_recipes_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+            <%= link_to 'Logout', destroy_user_session_path, method: 'delete', class: 'btn btn-primary', style: 'margin-top: 7px;'%>
+            Olá, <%= current_user.email %>
             <% else %>
-            <li><%= link_to 'Login', new_user_session_path %></li>
+            <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
             <% end %>
           </ul>
         </nav>
-      </div>
+    </div>
     </header>
     <br clear="all">
     <div class="container">
-      <p>Bem-vindo ao maior livro de receitas online</p>
+      <h4>Bem-vindo ao maior livro de receitas online!</h4>
 
       <% if flash[:error] %>
+      <div class="row">
+        <div class='alert alert-info'>
          <%= flash[:error] %>
+       </div>
+     </div>
       <% end %>
 
       <%= yield %>
@@ -44,7 +51,8 @@
 <footer class="text-center footer">
   <div class="color-footer">
       <hr>
-      <p>Social recipes |Copyright 2017</p>
+      <p>CookBook |Copyright 2017</p>
+      <p> Written and coded by <a href="https://elizabethramos.github.io/about-me/" target="_blank"> Eliza Ramos Vieira</p>
     </hr>
   </div>
 </footer>

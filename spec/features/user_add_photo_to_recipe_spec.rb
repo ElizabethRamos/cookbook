@@ -32,7 +32,7 @@ feature 'Owner add photo to recipe' do
 
     # expectativas
     expect(page).to have_css('h1', text: 'Tabule')
-    expect(page).to have_css('h3', text: 'Detalhes')
+    expect(page).to have_css('h3', text: 'Detalhes:')
     expect(page).to have_css('p', text: 'Entrada')
     expect(page).to have_css('p', text: 'Arabe')
     expect(page).to have_css('p', text: 'Fácil')

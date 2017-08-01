@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
       redirect_to @recipe
     else
       set_collections
-      flash[:error] = 'Você deve informar todos os dados da receita'
+      flash[:error] = 'Houve um erro'
       render :new
     end
   end
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
       redirect_to @recipe
     else
       set_collections
-      flash[:error] = 'Você deve informar todos os dados da receita'
+      flash[:error] = 'Houve um erro'
       render :edit
     end
   end

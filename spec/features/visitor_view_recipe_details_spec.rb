@@ -19,7 +19,7 @@ pequenos, misture com o restante dos ingredientes",
 
     # expectativas do usuário após a ação
     expect(page).to have_css('h1', text: recipe.title)
-    expect(page).to have_css('h3', text: 'Detalhes')
+    expect(page).to have_css('h3', text: 'Detalhes:')
     expect(page).to have_css('p', text: recipe.recipe_type.name)
     expect(page).to have_css('p', text: recipe.cuisine.name)
     expect(page).to have_css('p', text: recipe.difficulty)

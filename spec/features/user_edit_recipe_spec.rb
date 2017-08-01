@@ -36,7 +36,7 @@ chocolate'
     click_on 'Enviar'
 
     expect(page).to have_css('h1', text: 'Bolo de cenoura')
-    expect(page).to have_css('h3', text: 'Detalhes')
+    expect(page).to have_css('h3', text: 'Detalhes:')
     expect(page).to have_css('p', text: 'Sobremesa')
     expect(page).to have_css('p', text: 'Brasileira')
     expect(page).to have_css('p', text: 'Médio')

@@ -11,7 +11,7 @@ feature 'User sigin' do
     click_on 'Enviar'
 
     expect(current_path).to eq root_path
-    expect(page).to have_content('Ola maria@campus.com')
+    expect(page).to have_content('Olá, maria@campus.com')
     expect(page).not_to have_link('Login')
   end
 
