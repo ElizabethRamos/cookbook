@@ -22,10 +22,10 @@ feature 'Visitor view recipes by type' do
     # expectativas do usuario apos a acao
     expect(page).to have_css('h1', text: recipe_type.name)
     expect(page).to have_css('h1', text: recipe.title)
-    expect(page).to have_css('li', text: recipe.recipe_type.name)
-    expect(page).to have_css('li', text: recipe.cuisine.name)
-    expect(page).to have_css('li', text: recipe.difficulty)
-    expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
+    expect(page).to have_css('dt', text: recipe.recipe_type.name)
+    expect(page).to have_css('dt', text: recipe.cuisine.name)
+    expect(page).to have_css('dt', text: recipe.difficulty)
+    expect(page).to have_css('dt', text: "#{recipe.cook_time} minutos")
   end
 
   scenario 'and view only recipes from same type' do
@@ -58,15 +58,15 @@ ficar al dent; Misture os ovos e o bacon a massa ainda quente;', user: user)
 
     # expectativas do usuario apos a acao
     expect(page).to have_css('h1', text: main_recipe.title)
-    expect(page).to have_css('li', text: main_recipe.recipe_type.name)
-    expect(page).to have_css('li', text: main_recipe.cuisine.name)
-    expect(page).to have_css('li', text: main_recipe.difficulty)
-    expect(page).to have_css('li', text: "#{main_recipe.cook_time} minutos")
+    expect(page).to have_css('dt', text: main_recipe.recipe_type.name)
+    expect(page).to have_css('dt', text: main_recipe.cuisine.name)
+    expect(page).to have_css('dt', text: main_recipe.difficulty)
+    expect(page).to have_css('dt', text: "#{main_recipe.cook_time} minutos")
     expect(page).not_to have_css('h1', text: dessert_recipe.title)
-    expect(page).not_to have_css('li', text: dessert_recipe.recipe_type.name)
-    expect(page).not_to have_css('li', text: dessert_recipe.cuisine.name)
-    expect(page).not_to have_css('li', text: dessert_recipe.difficulty)
-    expect(page).not_to have_css('li', text: "#{dessert_recipe.cook_time}
+    expect(page).not_to have_css('dt', text: dessert_recipe.recipe_type.name)
+    expect(page).not_to have_css('dt', text: dessert_recipe.cuisine.name)
+    expect(page).not_to have_css('dt', text: dessert_recipe.difficulty)
+    expect(page).not_to have_css('dt', text: "#{dessert_recipe.cook_time}
                                              minutos")
   end
 

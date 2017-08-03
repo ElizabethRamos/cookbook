@@ -20,10 +20,10 @@ feature 'Visitor view only recent recipes on home page' do
     visit root_path
 
     expect(page).to have_css('h1', text: recent_recipe.title)
-    expect(page).to have_css('li', text: recent_recipe.recipe_type.name)
-    expect(page).to have_css('li', text: recent_recipe.cuisine.name)
-    expect(page).to have_css('li', text: recent_recipe.difficulty)
-    expect(page).to have_css('li', text: "#{recent_recipe.cook_time} minutos")
+    expect(page).to have_css('dt', text: recent_recipe.recipe_type.name)
+    expect(page).to have_css('dt', text: recent_recipe.cuisine.name)
+    expect(page).to have_css('dt', text: recent_recipe.difficulty)
+    expect(page).to have_css('dt', text: "#{recent_recipe.cook_time} minutos")
 
     expect(page).not_to have_css('h1', text: old_recipe.title)
   end
@@ -48,16 +48,16 @@ feature 'Visitor view only recent recipes on home page' do
     click_on 'Ver todas receitas'
 
     expect(page).to have_css('h1', text: recent_recipe.title)
-    expect(page).to have_css('li', text: recent_recipe.recipe_type.name)
-    expect(page).to have_css('li', text: recent_recipe.cuisine.name)
-    expect(page).to have_css('li', text: recent_recipe.difficulty)
-    expect(page).to have_css('li', text: "#{recent_recipe.cook_time} minutos")
+    expect(page).to have_css('dt', text: recent_recipe.recipe_type.name)
+    expect(page).to have_css('dt', text: recent_recipe.cuisine.name)
+    expect(page).to have_css('dt', text: recent_recipe.difficulty)
+    expect(page).to have_css('dt', text: "#{recent_recipe.cook_time} minutos")
 
     expect(page).to have_css('h1', text: old_recipe.title)
-    expect(page).to have_css('li', text: old_recipe.recipe_type.name)
-    expect(page).to have_css('li', text: old_recipe.cuisine.name)
-    expect(page).to have_css('li', text: old_recipe.difficulty)
-    expect(page).to have_css('li', text: "#{old_recipe.cook_time} minutos")
+    expect(page).to have_css('dt', text: old_recipe.recipe_type.name)
+    expect(page).to have_css('dt', text: old_recipe.cuisine.name)
+    expect(page).to have_css('dt', text: old_recipe.difficulty)
+    expect(page).to have_css('dt', text: "#{old_recipe.cook_time} minutos")
   end
 
   def create_recipe(recipe_name)

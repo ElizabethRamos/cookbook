@@ -34,10 +34,10 @@ feature 'Visitor search for recipes' do
     expect(page).to have_css('h1', text: "Resultado da busca por: \
 Bolo de cenoura")
     expect(page).to have_css('h1', text: recipe.title)
-    expect(page).to have_css('li', text: recipe.recipe_type.name)
-    expect(page).to have_css('li', text: recipe.cuisine.name)
-    expect(page).to have_css('li', text: recipe.difficulty)
-    expect(page).to have_css('li', text: "#{recipe.cook_time} minutos")
+    expect(page).to have_css('dt', text: recipe.recipe_type.name)
+    expect(page).to have_css('dt', text: recipe.cuisine.name)
+    expect(page).to have_css('dt', text: recipe.difficulty)
+    expect(page).to have_css('dt', text: "#{recipe.cook_time} minutos")
     expect(page).not_to have_css('h1', text: another_recipe.title)
   end
 
