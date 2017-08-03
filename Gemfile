@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# use devise and paperclip
+gem 'pg'
 gem 'devise'
 gem 'paperclip'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
