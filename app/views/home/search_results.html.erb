@@ -1,12 +1,14 @@
-<h1> Resultado da busca por: <%= @search %> </h1>
+<div class="row">
+  <h1> Resultado da busca por: <%= @search %> </h1>
 
-<% if @recipes.empty? %>
-  Nenhuma receita encontrada.
-<% end %>
+  <% if @recipes.empty? %>
+    Nenhuma receita encontrada.
+  <% end %>
 
-<% @recipes.each do |recipe| %>
-  <%= render recipe %>
-<% end %>
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+</div>
 
 <%= render 'home/search' %>
-<%= link_to 'Voltar', root_path %>
+<%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;'%>

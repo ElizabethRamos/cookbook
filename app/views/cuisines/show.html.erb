@@ -1,12 +1,14 @@
-<h1>Cozinha: <%= @cuisine.name %></h1>
+<div class="row">
+  <h1>Cozinha: <%= @cuisine.name %></h1>
 
-<% if @cuisine.recipes.empty? %>
-  Nenhuma receita encontrada para este tipo de cozinha
-<% end %>
+  <% if @cuisine.recipes.empty? %>
+    Nenhuma receita encontrada para este tipo de cozinha
+  <% end %>
 
-<% @cuisine.recipes.each do |recipe| %>
-  <%= render recipe %>
-<% end %>
+  <% @cuisine.recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+</div>
 
 <%= link_to 'Editar', edit_cuisine_path(@cuisine), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
 <%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
