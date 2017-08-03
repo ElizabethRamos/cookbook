@@ -9,4 +9,5 @@ rvm:
 cache: bundler
 
 before_script:
+  - psql -c 'create database cookbook_test;' -U postgres
   - rake rubocop
