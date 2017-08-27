@@ -22,7 +22,7 @@
             <%= link_to 'Ver todas receitas', all_recipes_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
             <% if user_signed_in? %>
             <%= link_to 'Minhas receitas', my_recipes_recipes_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
-            <%= link_to 'Logout', destroy_user_session_path, method: 'delete', class: 'btn btn-primary', style: 'margin-top: 7px;'%>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary', style: 'margin-top: 7px;'%>
             Olá, <%= current_user.email %>
             <% else %>
             <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
