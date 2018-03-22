@@ -1,4 +1,7 @@
+
 ## CookBook
+Travis.ci:
+[![Build Status](https://travis-ci.org/ElizabethRamos/cookbook.svg?branch=master)](https://travis-ci.org/ElizabethRamos/cookbook)
 
 This is CookBook, an application for sending kitchen recipes.
 It was done with the goal of improving my knowledge in Rails and exercising the use of good practices like: TDD, continuous integration and code refactoring.
@@ -6,27 +9,27 @@ Feel free to propose new features, and review the code.
 
 ## How does it work
 
-To Run this project you will need:
+To get started with the app, clone the repo and then install the needed gems:
 
-- Travis.ci:
-[![Build Status](https://travis-ci.org/ElizabethRamos/cookbook.svg?branch=master)](https://travis-ci.org/ElizabethRamos/cookbook)
+```
+$ bundle install
+```
 
-- Rubocop:
-https://github.com/bbatsov/rubocop
+Next, migrate the database:
 
-- Paperclip:
-https://github.com/thoughtbot/paperclip
+```
+$ rails db:migrate
+```
 
-- Rails 5.1.1
+And we already have some recipes on seeds:
 
-- Ruby 2.3.4
+```
+$ rails db:seed
+```
 
-- RSpec
 
-- Capybara
+Yay! You're ready to run the app in a local server:
 
-- Bootstrap:
- https://github.com/twbs/bootstrap-sass
-
- - Devise:
- https://github.com/plataformatec/devise
+```
+$ rails server
+```
