@@ -1,8 +1,18 @@
 require 'rails_helper'
 
-feature 'Visitor view recipe details' do
+feature 'Visitor view recipes by dificulty' do
   scenario 'successfully' do
-    # cria os dados necessários
+
+    # simula a ação do usuário
+    visit root_path
+
+    # expectativas do usuário após a ação
+    expect(page).to have_css('h3', text: "Dificuldade - Fácil")
+    expect(page).to have_css('h3', text: "Dificuldade - Médio")
+    expect(page).to have_css('h3', text: "Dificuldade - Difícil")
+  end
+
+  scenario 'and click on one recipe' do
     user = User.create(email: 'maria@campus.com', password: '12345678')
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
@@ -15,7 +25,7 @@ pequenos, misture com o restante dos ingredientes",
 
     # simula a ação do usuário
     visit root_path
-    within(".recipes") do
+    within(".medium-box") do
       click_link recipe.title
     end
 
@@ -30,29 +40,5 @@ pequenos, misture com o restante dos ingredientes",
     expect(page).to have_css('p', text: recipe.ingredients)
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text: recipe.method)
-  end
-
-  scenario 'and return to recipe list' do
-    # cria os dados necessários
-    user = User.create(email: 'maria@campus.com', password: '12345678')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Sobremesa')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type:  recipe_type,
-                           cuisine: cuisine, difficulty: 'Médio',
-                           cook_time: 60,
-                           ingredients: 'Farinha, açucar, cenoura',
-                           method: "Cozinhe a cenoura, corte em pedaços \
-pequenos, misture com o restante dos ingredientes",
-                           user: user)
-
-    # simula a ação do usuário
-    visit root_path
-    within(".recipes") do
-      click_link recipe.title
-    end
-    click_on 'Voltar'
-
-    # expectativa da rota atual
-    expect(current_path).to eq(root_path)
   end
 end

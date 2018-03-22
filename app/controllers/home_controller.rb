@@ -14,6 +14,7 @@ class HomeController < ApplicationController
 
   def all_recipes
     @recipes = Recipe.all
+    difficulty
     render 'index'
   end
 
