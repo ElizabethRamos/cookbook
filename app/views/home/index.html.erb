@@ -1,6 +1,6 @@
 <aside>
   <div class="cuisines-box">
-    <h3>Cozinha</h3>
+    <h3>Cozinhas</h3>
     <ul class="cuisines">
       <% @cuisines.each do |cuisine| %>
         <li><%= link_to cuisine.name, cuisine_path(cuisine) %></li>
@@ -9,14 +9,41 @@
   </div>
 
   <div class="recipe-type-box">
-    <h3>Tipo</h3>
+    <h3>Tipos de receita</h3>
     <ul class="recipe_type">
       <% @recipe_types.each do |recipe_type| %>
         <li><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></li>
       <% end %>
     </ul>
   </div>
-</aside>
+
+  <div class="recipe-type-box">
+    <h3>Dificuldade - Fácil</h3>
+    <ul class="dificulty">
+      <% @easy_recipes.each do |recipe| %>
+        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="recipe-type-box">
+    <h3>Dificuldade - Médio</h3>
+    <ul class="dificulty">
+      <% @medium_recipes.each do |recipe| %>
+        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="recipe-type-box">
+    <h3>Dificuldade - Difícil </h3>
+    <ul class="dificulty">
+      <% @hard_recipes.each do |recipe| %>
+        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+      <% end %>
+    </ul>
+  </div>
+
 
 <main>
   <div class="recipes">
