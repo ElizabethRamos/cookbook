@@ -45,4 +45,4 @@ Also, I'm using Rubocop to do the code analysis.
 
 ## Continuous Integration
 
-Each commit (including the tests) goes through an automated build (including testing) to detect integration errors as quickly as possible. For this, I'm using travis.ci.
+Each commit (including the tests) goes through an automated build to detect integration errors as quickly as possible. For this, I'm using travis.ci.
