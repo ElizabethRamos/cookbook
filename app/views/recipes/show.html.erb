@@ -13,6 +13,7 @@
   <%= image_tag @recipe.photo.url %>
 </div>
 
-
-<%= link_to 'Editar', edit_recipe_path(@recipe), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<% if user_signed_in? %>
+  <%= link_to 'Editar', edit_recipe_path(@recipe), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<% end %>  
 <%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>

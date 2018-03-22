@@ -19,6 +19,10 @@ feature 'User update recipe' do
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Login'
+    fill_in 'Email', with: 'maria@campus.com'
+    fill_in 'Senha', with: '12345678'
+    click_on 'Enviar'
 
     within('.recipes') do
       click_link recipe.title
@@ -66,6 +70,11 @@ chocolate")
 
     # simula a ação do usuário
     visit root_path
+    click_on 'Login'
+    fill_in 'Email', with: 'maria@campus.com'
+    fill_in 'Senha', with: '12345678'
+    click_on 'Enviar'
+    
     within('.recipes') do
       click_link another_recipe.title
     end
