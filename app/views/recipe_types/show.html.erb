@@ -8,6 +8,8 @@
   <%= render recipe %>
 <% end %>
 
-<%= link_to 'Editar', edit_recipe_type_path(@recipe_type), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<% if user_signed_in? %>
+  <%= link_to 'Editar', edit_recipe_type_path(@recipe_type), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<% end %>
 
 <%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>

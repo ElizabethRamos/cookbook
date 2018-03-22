@@ -10,5 +10,8 @@
   <% end %>
 </div>
 
-<%= link_to 'Editar', edit_cuisine_path(@cuisine), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<% if user_signed_in? %>
+  <%= link_to 'Editar', edit_cuisine_path(@cuisine), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<% end %>
+
 <%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>

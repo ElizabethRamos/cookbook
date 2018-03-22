@@ -3,9 +3,14 @@ require 'rails_helper'
 feature 'User update recipe' do
   scenario 'successfully' do
     # cria os dados necessários
+    user = User.create(email: 'maria@campus.com', password: '12345678')
     RecipeType.create(name: 'Sobremesa')
 
     visit root_path
+    click_on 'Login'
+    fill_in 'Email', with: 'maria@campus.com'
+    fill_in 'Senha', with: '12345678'
+    click_on 'Enviar'
 
     click_on 'Sobremesa'
     click_on 'Editar'
@@ -18,9 +23,14 @@ feature 'User update recipe' do
   end
 
   scenario 'and all fields must be filled' do
+    user = User.create(email: 'maria@campus.com', password: '12345678')
     RecipeType.create(name: 'Sobremesa')
 
     visit root_path
+    click_on 'Login'
+    fill_in 'Email', with: 'maria@campus.com'
+    fill_in 'Senha', with: '12345678'
+    click_on 'Enviar'
 
     click_on 'Sobremesa'
     click_on 'Editar'
