@@ -10,17 +10,17 @@ feature 'User update recipe' do
     main_type = RecipeType.create(name: 'Prato Principal')
     RecipeType.create(name: 'Sobremesa')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: main_type,
-                  cuisine: arabian_cuisine, difficulty: 'Médio',
-                  cook_time: 50,
-                  ingredients: 'Farinha, açucar, cenoura',
-                  method: 'Cozinhe a cenoura, corte em pedaços
+                           cuisine: arabian_cuisine, difficulty: 'Médio',
+                           cook_time: 50,
+                           ingredients: 'Farinha, açucar, cenoura',
+                           method: 'Cozinhe a cenoura, corte em pedaços
                            pequenos, misture com o restante dos ingredientes',
-                  user: user)
+                           user: user)
 
     # simula a ação do usuário
     visit root_path
 
-    within(".recipes") do
+    within('.recipes') do
       click_link recipe.title
     end
     click_on 'Editar'
@@ -50,25 +50,23 @@ chocolate")
 
   scenario 'and all fields must be filled' do
     # cria os dados necessários, nesse caso não vamos criar dados no banco
-    arabian_cuisine = Cuisine.create(name: 'Arabe')
-    Cuisine.create(name: 'Brasileira')
+    brazilian = Cuisine.create(name: 'Brasileira')
     user = User.create(email: 'maria@campus.com', password: '12345678')
-
     RecipeType.create(name: 'Entrada')
     main_type = RecipeType.create(name: 'Prato Principal')
     RecipeType.create(name: 'Sobremesa')
 
-    another_recipe = Recipe.create(title: 'Bolo de chocolate', recipe_type: main_type,
-                  cuisine: arabian_cuisine, difficulty: 'Médio',
-                  cook_time: 50,
-                  ingredients: 'Farinha, açucar, chocolate',
-                  method: 'corte e derreta o chocolate,
-                  misture com o restante dos ingredientes',
-                  user: user)
+    another_recipe = Recipe.create(title: 'Bolo', recipe_type: main_type,
+                                   cuisine: brazilian, difficulty: 'Médio',
+                                   cook_time: 50,
+                                   ingredients: 'Farinha, açucar, chocolate',
+                                   method: 'corte e derreta o chocolate,
+                                   misture com o restante dos ingredientes',
+                                   user: user)
 
     # simula a ação do usuário
     visit root_path
-    within(".recipes") do
+    within('.recipes') do
       click_link another_recipe.title
     end
     click_on 'Editar'

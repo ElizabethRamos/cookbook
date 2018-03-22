@@ -2,14 +2,13 @@ require 'rails_helper'
 
 feature 'Visitor view recipes by dificulty' do
   scenario 'successfully' do
-
     # simula a ação do usuário
     visit root_path
 
     # expectativas do usuário após a ação
-    expect(page).to have_css('h3', text: "Dificuldade - Fácil")
-    expect(page).to have_css('h3', text: "Dificuldade - Médio")
-    expect(page).to have_css('h3', text: "Dificuldade - Difícil")
+    expect(page).to have_css('h3', text: 'Dificuldade - Fácil')
+    expect(page).to have_css('h3', text: 'Dificuldade - Médio')
+    expect(page).to have_css('h3', text: 'Dificuldade - Difícil')
   end
 
   scenario 'and click on one recipe' do
@@ -25,7 +24,7 @@ pequenos, misture com o restante dos ingredientes",
 
     # simula a ação do usuário
     visit root_path
-    within(".medium-box") do
+    within('.medium-box') do
       click_link recipe.title
     end
 

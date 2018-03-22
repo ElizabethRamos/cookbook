@@ -15,7 +15,7 @@ pequenos, misture com o restante dos ingredientes",
 
     # simula a ação do usuário
     visit root_path
-    within(".recipes") do
+    within('.recipes') do
       click_link recipe.title
     end
 
@@ -47,7 +47,7 @@ pequenos, misture com o restante dos ingredientes",
 
     # simula a ação do usuário
     visit root_path
-    within(".recipes") do
+    within('.recipes') do
       click_link recipe.title
     end
     click_on 'Voltar'

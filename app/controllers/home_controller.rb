@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def search
     @search = params[:search_text]
-    @recipes = Recipe.where("title = ?", params[:search_text])
+    @recipes = Recipe.where('title = ?', params[:search_text])
     render :search_results
   end
 
@@ -19,9 +19,9 @@ class HomeController < ApplicationController
   end
 
   def difficulty
-    @easy_recipes = Recipe.where("difficulty = ?", "Fácil")
-    @medium_recipes = Recipe.where("difficulty = ?", "Médio")
-    @hard_recipes = Recipe.where("difficulty = ?", "Difícil")
+    @easy_recipes = Recipe.where('difficulty = ?', 'Fácil')
+    @medium_recipes = Recipe.where('difficulty = ?', 'Médio')
+    @hard_recipes = Recipe.where('difficulty = ?', 'Difícil')
   end
 
   private

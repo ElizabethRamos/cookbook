@@ -45,17 +45,17 @@ feature 'Visitor view only recent recipes on home page' do
                                   method: 'Misturar tudo, bater e assar',
                                   cook_time: 60, user: user)
     easy_recipe = Recipe.create(title: 'Brigadeiro',
-                                  recipe_type: recipe_type,
-                                  cuisine: cuisine, difficulty: 'Fácil',
-                                  ingredients: 'Leite condensado, manteiga',
-                                  method: 'Misturar tudo, levar ao fogo',
-                                  cook_time: 60, user: user)
-    medium_recipe = Recipe.create(title: 'Lasanha',
-                                recipe_type: another_recipe_type,
-                                cuisine: another_cuisine, difficulty: 'Médio',
-                                ingredients: 'Carne moída, molho de tomate',
-                                method: 'Misturar tudo, montar a lasanha',
+                                recipe_type: recipe_type,
+                                cuisine: cuisine, difficulty: 'Fácil',
+                                ingredients: 'Leite condensado, manteiga',
+                                method: 'Misturar tudo, levar ao fogo',
                                 cook_time: 60, user: user)
+    medium_recipe = Recipe.create(title: 'Lasanha',
+                                  recipe_type: another_recipe_type,
+                                  cuisine: another_cuisine, difficulty: 'Médio',
+                                  ingredients: 'Carne moída, molho de tomate',
+                                  method: 'Misturar tudo, montar a lasanha',
+                                  cook_time: 60, user: user)
 
     # simula a ação do usuário
     visit root_path
