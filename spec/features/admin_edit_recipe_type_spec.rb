@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User update recipe' do
   scenario 'successfully' do
     # cria os dados necessários
-    user = User.create(email: 'maria@campus.com', password: '12345678')
+    User.create(email: 'maria@campus.com', password: '12345678')
     RecipeType.create(name: 'Sobremesa')
 
     visit root_path
@@ -23,7 +23,7 @@ feature 'User update recipe' do
   end
 
   scenario 'and all fields must be filled' do
-    user = User.create(email: 'maria@campus.com', password: '12345678')
+    User.create(email: 'maria@campus.com', password: '12345678')
     RecipeType.create(name: 'Sobremesa')
 
     visit root_path
