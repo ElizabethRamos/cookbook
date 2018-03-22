@@ -10,7 +10,7 @@ end
 gem 'devise'
 gem 'jquery-rails'
 gem 'paperclip'
-gem 'pg'
+gem 'pg', '~> 0.18.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # use rubocop
@@ -51,6 +51,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :production do
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

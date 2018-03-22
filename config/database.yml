@@ -4,6 +4,7 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
+host: localhost
 default: &default
   adapter: postgresql
   enconding: unicode
