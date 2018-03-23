@@ -9,6 +9,7 @@ end
 
 gem 'devise'
 gem 'jquery-rails'
+gem 'materialize-sass', '~> 1.0.0.alpha4'
 gem 'paperclip'
 gem 'pg', '~> 0.18.4'
 gem 'rails', '~> 5.1.1'

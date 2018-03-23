@@ -1,19 +1,22 @@
-<div class="row">
-  <h1><%= @recipe.title %></h1>
-  <h3>Detalhes:</h3>
-  <p><%= @recipe.recipe_type.name %></p>
-  <p><%= @recipe.cuisine.name %></p>
-  <p><%= @recipe.difficulty %></p>
-  <p><%= @recipe.cook_time %> minutos</p>
-  <h3>Ingredientes:</h3>
-  <p><%= @recipe.ingredients %></p>
-  <h3>Como Preparar:</h3>
-  <p><%= @recipe.method %>
-  <h3>Foto da receita: </h3>
-  <%= image_tag @recipe.photo.url %>
-</div>
+<article>
+  <div class="recipe">
+    <h4><%= @recipe.title %></h4>
+    <h5>Detalhes:</h5>
+    <p><%= @recipe.recipe_type.name %></p>
+    <p><%= @recipe.cuisine.name %></p>
+    <p><%= @recipe.difficulty %></p>
+    <p><%= @recipe.cook_time %> minutos</p>
+    <h5>Ingredientes:</h5>
+    <p><%= @recipe.ingredients %></p>
+    <h5>Como Preparar:</h5>
+    <p><%= @recipe.method %>
+    <h5>Foto da receita: </h5>
+    <%= image_tag @recipe.photo.url %>
+  </div>
 
-<% if user_signed_in? %>
-  <%= link_to 'Editar', edit_recipe_path(@recipe), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
-<% end %>  
-<%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+  <% if user_signed_in? %>
+    <%= link_to 'Editar', edit_recipe_path(@recipe) %>
+  <% end %>
+
+  <%= link_to 'Voltar', root_path %>
+</article>

@@ -1,56 +1,35 @@
 <% if @recipe.errors.full_messages.any? %>
-  <div class="alert alert-danger">
-    <% @recipe.errors.full_messages.each do |message| %>
-      <label> <%= message %></label>
-    <% end %>
-  </div>
+  <% @recipe.errors.full_messages.each do |message| %>
+    <label> <%= message %></label>
+  <% end %>
 <% end %>
 
-<div class='row'>
-  <div class="col-md-6">
+
 <%= form_for @recipe do |f| %>
 
-    <div class="form-group">
-      <%= f.label :title, 'Título' %>
-      <%= f.text_field :title, class: 'form-control' %>
-    </div>
+  <%= f.label :title, 'Título' %>
+  <%= f.text_field :title %>
 
-    <div>
-      <%= f.label :recipe_type_id, 'Tipo da Receita' %>
-      <%= f.collection_select(:recipe_type_id, @recipe_types, :id, :name) %>
-    </div>
+  <%= f.label :recipe_type_id, 'Tipo da Receita' %>
+  <%= f.collection_select :recipe_type_id, @recipe_types, :id, :name, { prompt: "Tipo da receita" }, class: "browser-default" %>
 
-    <div>
-      <%= f.label :cuisine_id, 'Cozinha' %>
-      <%= f.collection_select(:cuisine_id, @cuisines, :id, :name) %>
-    </div>
+  <%= f.label :cuisine_id, 'Cozinha' %>
+  <%= f.collection_select :cuisine_id, @cuisines, :id, :name, { prompt: "Cozinha" }, class: "browser-default" %>
 
-    <div class="form-group">
-      <%= f.label :difficulty, 'Dificuldade' %>
-      <%= f.text_field :difficulty, class: 'form-control' %>
-    </div>
+  <%= f.label :difficulty, 'Dificuldade' %>
+  <%= f.text_field :difficulty %>
 
-    <div class="form-group">
-      <%= f.label :cook_time, 'Tempo de Preparo' %>
-      <%= f.text_field :cook_time, class: 'form-control' %>
-    </div>
+  <%= f.label :cook_time, 'Tempo de Preparo' %>
+  <%= f.text_field :cook_time %>
 
-    <div class="form-group">
-      <%= f.label :ingredients, 'Ingredientes' %>
-      <%= f.text_field :ingredients, class: 'form-control' %>
-    </div>
+  <%= f.label :ingredients, 'Ingredientes' %>
+  <%= f.text_field :ingredients %>
 
-    <div class="form-group">
-      <%= f.label :method, 'Como Preparar' %>
-      <%= f.text_field :method, class: 'form-control' %>
-    </div>
+  <%= f.label :method, 'Como Preparar' %>
+  <%= f.text_field :method %>
 
-     <div class="form-group">
-      <%= f.label :photo, 'Foto da receita' %>
-      <%= f.file_field :photo, accept: 'image/png,image/gif,image/jpeg', class: 'form-control' %>
-    </div>
+  <%= f.label :photo, 'Foto da receita' %>
+  <%= f.file_field :photo, accept: 'image/png,image/gif,image/jpeg' %>
 
-      <%= f.submit 'Enviar', class: 'btn btn-default' %>
+  <%= f.submit 'Enviar', class: 'btn btn-default' %>
   <% end %>
- </div>
-</div>

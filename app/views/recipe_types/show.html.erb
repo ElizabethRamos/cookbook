@@ -9,7 +9,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to 'Editar', edit_recipe_type_path(@recipe_type), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+  <%= link_to 'Editar', edit_recipe_type_path(@recipe_type) %>
 <% end %>
 
-<%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<%= link_to 'Voltar', root_path %>

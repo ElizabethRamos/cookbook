@@ -1,10 +1,12 @@
-<h1><%= link_to recipe.title, recipe_path(recipe) %></h1>
-<dl>
-  <dt><%= recipe.recipe_type.name %></dt>
-  <dt><%= recipe.cuisine.name %></dt>
-  <dt><%= recipe.difficulty %></dt>
-  <dt><%= recipe.cook_time %> minutos</dt>
-  <dt><%= recipe.method %></dt>
-  <dt><%= recipe.ingredients %></dt>
-  <dt><%= image_tag recipe.photo.url %></dt>
-</ul>
+<article>
+  <h4><%= link_to recipe.title, recipe_path(recipe) %></h4>
+  <dl>
+    <dt><%= recipe.recipe_type.name %></dt>
+    <dt><%= recipe.cuisine.name %></dt>
+    <dt><%= recipe.difficulty %></dt>
+    <dt><%= recipe.cook_time %> minutos</dt>
+    <dt><%= recipe.method %></dt>
+    <dt><%= recipe.ingredients %></dt>
+    <dt><%= image_tag recipe.photo.url %></dt>
+  </ul>
+</article>

@@ -1,4 +1,4 @@
-<div class="row">
+<div>
   <h1>Cozinha: <%= @cuisine.name %></h1>
 
   <% if @cuisine.recipes.empty? %>
@@ -11,7 +11,7 @@
 </div>
 
 <% if user_signed_in? %>
-  <%= link_to 'Editar', edit_cuisine_path(@cuisine), class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+  <%= link_to 'Editar', edit_cuisine_path(@cuisine) %>
 <% end %>
 
-<%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+<%= link_to 'Voltar', root_path %>
