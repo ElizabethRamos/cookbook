@@ -5,41 +5,42 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat:700" rel="stylesheet">
+    <link href="style.scss" media="all" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 
-<body class="whole-page">
-  <header class="big-header">
+<body class="wrapper">
+  <header class="header">
     <h3><%= link_to 'CookBook', root_path %></h3>
-    <ul>
-      <li><%= link_to 'Enviar uma receita', new_recipe_path %></li>
-      <li><%= link_to 'Ver todas receitas', all_recipes_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Minhas receitas', my_recipes_recipes_path %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></li>
-          <p>Olá, <%= current_user.email %></p>
-        <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-        <% end %>
+      <nav>
+        <ul>
+          <li><%= link_to 'Enviar uma receita', new_recipe_path %></li>
+          <li><%= link_to 'Ver todas receitas', all_recipes_path %></li>
+          <% if user_signed_in? %>
+              <li><%= link_to 'Minhas receitas', my_recipes_recipes_path %></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></li>
+              <p>Olá, <%= current_user.email %></p>
+            <% else %>
+              <li><%= link_to 'Login', new_user_session_path %></li>
+            <% end %>
+         </ul>
         <%= render 'home/search' %>
-    </ul>
+       </nav>
   </header>
 
-  <div class="main-area">
-    <div>
-      <h4>Bem-vindo ao maior livro de receitas online!</h4>
-      <% if flash[:error] %>
-      <%= flash[:error] %>
-    </div>
-    <% end %>
-    <%= yield %>
-  </div>
+  <main class="content">
+    <article class="full">
+        <h4>Bem-vindo ao maior livro de receitas online!</h4>
+        <% if flash[:error] %>
+        <%= flash[:error] %>
+        <% end %>
+        <%= yield %>
+    </article>
+  </main>
 
-  <footer class="big-footer">
+  <footer class="footer">
     <div>
-      <hr>
-      <p>CookBook | Copyright 2017</p>
-      <p> Written and coded by <a href="https://elizabethramos.github.io/about-me/" target="_blank">Eliza Ramos Vieira</p>
+      <p>CookBook | Copyright 2017 | Written and coded by <a href="https://elizabethramos.github.io/about-me/" target="_blank">Eliza Ramos Vieira</p>
     </div>
   </footer>
 </body>
