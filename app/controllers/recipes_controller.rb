@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :set_collections, only: %i[new edit update]
+  before_action :set_collections, only: %i[new edit update show]
   before_action :find_recipe, only: %i[edit show update]
 
   def new
@@ -49,6 +49,7 @@ class RecipesController < ApplicationController
   def set_collections
     @cuisines = Cuisine.all
     @recipe_types = RecipeType.all
+    @recipes = Recipe.all
   end
 
   def find_recipe
