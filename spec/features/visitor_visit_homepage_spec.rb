@@ -4,7 +4,7 @@ feature 'Visitor visit homepage' do
   scenario 'successfully' do
     visit root_path
 
-    expect(page).to have_css('h1', text: 'CookBook')
+    expect(page).to have_css('h3', text: 'CookBook')
     expect(page).to have_css('h4', text: "Bem-vindo ao maior \
 livro de receitas online")
   end
@@ -23,7 +23,7 @@ livro de receitas online")
     visit root_path
 
     # expectativas do usuario apos a acao
-    expect(page).to have_css('h1', text: recipe.title)
+    expect(page).to have_css('h4', text: recipe.title)
     expect(page).to have_css('dt', text: recipe.recipe_type.name)
     expect(page).to have_css('dt', text: recipe.cuisine.name)
     expect(page).to have_css('dt', text: recipe.difficulty)
@@ -54,13 +54,13 @@ livro de receitas online")
     visit root_path
 
     # expectativas do usuario apos a acao
-    expect(page).to have_css('h1', text: recipe.title)
+    expect(page).to have_css('h4', text: recipe.title)
     expect(page).to have_css('dt', text: recipe.recipe_type.name)
     expect(page).to have_css('dt', text: recipe.cuisine.name)
     expect(page).to have_css('dt', text: recipe.difficulty)
     expect(page).to have_css('dt', text: "#{recipe.cook_time} minutos")
 
-    expect(page).to have_css('h1', text: another_recipe.title)
+    expect(page).to have_css('h4', text: another_recipe.title)
     expect(page).to have_css('dt', text: another_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: another_recipe.cuisine.name)
     expect(page).to have_css('dt', text: another_recipe.difficulty)
