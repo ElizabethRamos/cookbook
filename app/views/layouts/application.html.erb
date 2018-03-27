@@ -3,57 +3,45 @@
   <head>
     <title>Cookbook</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="style.scss" media="all" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 
-  <body>
-    <header class="navbar navbar-default"> <!-- fixed top -->
-      <div class="container">
-        <div class="navbar-header">
-        <h1><%= link_to 'CookBook', root_path %></h1>
-        </div>
-        <div class="navbar-right">
-          <label class="navbar-text">Bem vindo ao CookBook</label>
-          <%= render 'home/search' %>
-          <ul class="nav navbar-nav navbar-right">
-            <%= link_to 'Enviar uma receita', new_recipe_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
-            <%= link_to 'Ver todas receitas', all_recipes_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
-            <% if user_signed_in? %>
-            <%= link_to 'Minhas receitas', my_recipes_recipes_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary', style: 'margin-top: 7px;'%>
-            Olá, <%= current_user.email %>
+<body class="wrapper">
+  <header class="header">
+    <h3><%= link_to 'CookBook', root_path %></h3>
+      <nav>
+        <ul>
+          <li><%= link_to 'Enviar uma receita', new_recipe_path %></li>
+          <li><%= link_to 'Ver todas receitas', all_recipes_path %></li>
+          <% if user_signed_in? %>
+              <li><%= link_to 'Minhas receitas', my_recipes_recipes_path %></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></li>
+              <p>Olá, <%= current_user.email %></p>
             <% else %>
-            <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary', style: 'margin-top: 7px;' %>
+              <li><%= link_to 'Login', new_user_session_path %></li>
             <% end %>
-          </ul>
-        </nav>
+         </ul>
+        <%= render 'home/search' %>
+       </nav>
+  </header>
+
+  <main class="content">
+    <article class="full">
+        <h4>Bem-vindo ao maior livro de receitas online!</h4>
+        <% if flash[:error] %>
+        <%= flash[:error] %>
+        <% end %>
+        <%= yield %>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <p>CookBook | Copyright 2017 | Written and coded by <a href="https://elizabethramos.github.io/about-me/" target="_blank">Eliza Ramos Vieira</p>
     </div>
-    </header>
-    <br clear="all">
-    <div class="container">
-      <h4>Bem-vindo ao maior livro de receitas online!</h4>
-
-      <% if flash[:error] %>
-      <div class="row">
-        <div class='alert alert-info'>
-         <%= flash[:error] %>
-       </div>
-     </div>
-      <% end %>
-
-      <%= yield %>
-    </div>
-  </body>
-
-
-<footer class="text-center footer">
-  <div class="color-footer">
-      <hr>
-      <p>CookBook |Copyright 2017</p>
-      <p> Written and coded by <a href="https://elizabethramos.github.io/about-me/" target="_blank"> Eliza Ramos Vieira</p>
-    </hr>
-  </div>
-</footer>
+  </footer>
+</body>
 </html>

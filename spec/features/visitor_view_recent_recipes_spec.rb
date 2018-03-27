@@ -19,7 +19,7 @@ feature 'Visitor view only recent recipes on home page' do
     # simula a ação do usuário
     visit root_path
 
-    expect(page).to have_css('h1', text: recent_recipe.title)
+    expect(page).to have_css('h4', text: recent_recipe.title)
     expect(page).to have_css('dt', text: recent_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: recent_recipe.cuisine.name)
     expect(page).to have_css('dt', text: recent_recipe.difficulty)
@@ -61,25 +61,25 @@ feature 'Visitor view only recent recipes on home page' do
     visit root_path
     click_on 'Ver todas receitas'
 
-    expect(page).to have_css('h1', text: recent_recipe.title)
+    expect(page).to have_css('h4', text: recent_recipe.title)
     expect(page).to have_css('dt', text: recent_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: recent_recipe.cuisine.name)
     expect(page).to have_css('dt', text: recent_recipe.difficulty)
     expect(page).to have_css('dt', text: "#{recent_recipe.cook_time} minutos")
 
-    expect(page).to have_css('h1', text: old_recipe.title)
+    expect(page).to have_css('h4', text: old_recipe.title)
     expect(page).to have_css('dt', text: old_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: old_recipe.cuisine.name)
     expect(page).to have_css('dt', text: old_recipe.difficulty)
     expect(page).to have_css('dt', text: "#{old_recipe.cook_time} minutos")
 
-    expect(page).to have_css('h1', text: easy_recipe.title)
+    expect(page).to have_css('h4', text: easy_recipe.title)
     expect(page).to have_css('dt', text: easy_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: easy_recipe.cuisine.name)
     expect(page).to have_css('dt', text: easy_recipe.difficulty)
     expect(page).to have_css('dt', text: "#{easy_recipe.cook_time} minutos")
 
-    expect(page).to have_css('h1', text: medium_recipe.title)
+    expect(page).to have_css('h4', text: medium_recipe.title)
     expect(page).to have_css('dt', text: medium_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: medium_recipe.cuisine.name)
     expect(page).to have_css('dt', text: medium_recipe.difficulty)
@@ -88,7 +88,7 @@ feature 'Visitor view only recent recipes on home page' do
 
   def create_recipe(recipe_name)
     user = User.create(email: 'maria@campus.com', password: '12345678')
-    generic_cuisine = cuisine_create
+    generic_cuisine = cuisine_name
     generic_type = RecipeType.create(name: 'Generic Recipe Type')
     Recipe.create(title: recipe_name, recipe_type: generic_type,
                   cuisine: generic_cuisine, difficulty: 'Facil',
@@ -97,7 +97,7 @@ feature 'Visitor view only recent recipes on home page' do
                   cook_time: 60, user: user)
   end
 
-  def cuisine_create
-    @recipe ||= Cuisine.create(name: 'Generic Cuisine')
+  def cuisine_name
+    @cuisine_name = Cuisine.create(name: 'Generic Cuisine')
   end
 end

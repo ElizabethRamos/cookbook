@@ -22,7 +22,7 @@ feature 'Visitor view recipes by cuisine' do
 
     # expectativas do usuário após a ação
     expect(page).to have_css('h1', text: cuisine.name)
-    expect(page).to have_css('h1', text: recipe.title)
+    expect(page).to have_css('h4', text: recipe.title)
     expect(page).to have_css('dt', text: recipe.recipe_type.name)
     expect(page).to have_css('dt', text: recipe.cuisine.name)
     expect(page).to have_css('dt', text: recipe.difficulty)
@@ -56,7 +56,7 @@ feature 'Visitor view recipes by cuisine' do
     click_on italian_cuisine.name
 
     # expectativas do usuário após a ação
-    expect(page).to have_css('h1', text: italian_recipe.title)
+    expect(page).to have_css('h4', text: italian_recipe.title)
     expect(page).to have_css('dt', text: italian_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: italian_recipe.cuisine.name)
     expect(page).to have_css('dt', text: italian_recipe.difficulty)

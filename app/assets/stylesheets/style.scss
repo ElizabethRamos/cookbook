@@ -1,0 +1,84 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 40px;
+  font-family: 'Montserrat', 'sans-serif';
+  background-color: #fff;
+  color: #444;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:link, a:visited {
+  color: #fff;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline-block;
+}
+h1, p {
+  margin: 0 0 1em 0;
+}
+
+/* no grid support? */
+.sidebar {
+
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.content {
+
+}
+
+/* make a grid */
+.wrapper {
+  /* max-width: 940px; */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 5px;
+}
+.wrapper > * {
+  background-color: #eaece5;
+  color: #3b3a30;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+.header, .footer {
+  background-color: #bdcebe;
+  grid-column: 1 / -1;
+}
+
+.topic {
+  background-color: #9fa9a3;
+  color: #eee;
+  border-radius: 5px;
+  padding: 20px;
+  width: 33.33%;
+  /* needed for the floated layout*/
+  margin: 0 1% 2%;
+  float: left;
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}

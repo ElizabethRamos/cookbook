@@ -1,16 +1,16 @@
-<div class='row'>
-  <div class="col-md-6 col-md-offset-3">
+<div >
+  <div class="">
 <h2>Login</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -18,7 +18,7 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>

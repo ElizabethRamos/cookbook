@@ -18,7 +18,7 @@ feature 'User create recipes' do
 
     click_on 'Minhas receitas'
 
-    expect(page).to have_css('h1', text: 'Bolodecenoura')
+    expect(page).to have_css('h4', text: 'Bolodecenoura')
     expect(page).to have_link('Bolodecenoura', href: recipe_path(recipe))
   end
 

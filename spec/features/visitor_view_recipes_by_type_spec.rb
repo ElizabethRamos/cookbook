@@ -20,8 +20,8 @@ feature 'Visitor view recipes by type' do
     click_on recipe_type.name
 
     # expectativas do usuario apos a acao
-    expect(page).to have_css('h1', text: recipe_type.name)
-    expect(page).to have_css('h1', text: recipe.title)
+    expect(page).to have_css('h4', text: recipe.title)
+    expect(page).to have_css('dt', text: recipe_type.name)
     expect(page).to have_css('dt', text: recipe.recipe_type.name)
     expect(page).to have_css('dt', text: recipe.cuisine.name)
     expect(page).to have_css('dt', text: recipe.difficulty)
@@ -57,7 +57,7 @@ ficar al dent; Misture os ovos e o bacon a massa ainda quente;', user: user)
     click_on main_recipe_type.name
 
     # expectativas do usuario apos a acao
-    expect(page).to have_css('h1', text: main_recipe.title)
+    expect(page).to have_css('h4', text: main_recipe.title)
     expect(page).to have_css('dt', text: main_recipe.recipe_type.name)
     expect(page).to have_css('dt', text: main_recipe.cuisine.name)
     expect(page).to have_css('dt', text: main_recipe.difficulty)
