@@ -45,3 +45,11 @@
     </dl>
   </article>
 </main>
+
+<aside class="sidebar">
+  <div class="recipes">
+    <% @recipes.each do |recipe| %>
+     <%= render recipe %>
+    <% end %>
+  </div>
+</aside>
