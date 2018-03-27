@@ -14,10 +14,10 @@
     <h3><%= link_to 'CookBook', root_path %></h3>
       <nav>
         <ul>
-          <li><%= link_to 'Enviar uma receita', new_recipe_path %></li>
-          <li><%= link_to 'Ver todas receitas', all_recipes_path %></li>
+          <li><%= link_to 'Enviar uma receita', new_recipe_path %></li> |
+          <li><%= link_to 'Ver todas as receitas', all_recipes_path %></li> |
           <% if user_signed_in? %>
-              <li><%= link_to 'Minhas receitas', my_recipes_recipes_path %></li>
+              <li><%= link_to 'Minhas receitas', my_recipes_recipes_path %></li> |
               <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></li>
               <p>Olá, <%= current_user.email %></p>
             <% else %>
@@ -30,7 +30,7 @@
 
   <main class="content">
     <article class="full">
-        <h4>Bem-vindo ao maior livro de receitas online!</h4>
+      <h4> Bem-vindo ao CookBook</h4>
         <% if flash[:error] %>
         <%= flash[:error] %>
         <% end %>
