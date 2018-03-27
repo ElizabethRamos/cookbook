@@ -2,47 +2,47 @@
 <main class="content">
   <article class="topic topic1 cuisines-box">
     <h4>Cozinhas</h4>
-    <ul class="cuisines">
+    <dl class="cuisines">
       <% @cuisines.each do |cuisine| %>
-        <li><%= link_to cuisine.name, cuisine_path(cuisine) %></li>
+        <dt><%= link_to cuisine.name, cuisine_path(cuisine) %></dt>
       <% end %>
-    </ul>
+    </dl>
   </article>
 
   <article class="topic topic2 recipe-type-box">
     <h4>Tipos de receita</h4>
-    <ul class="recipe_type">
+    <dl class="recipe_type">
       <% @recipe_types.each do |recipe_type| %>
-        <li><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></li>
+        <dt><%= link_to recipe_type.name, recipe_type_path(recipe_type) %></dt>
       <% end %>
-    </ul>
+    </dl>
   </article>
 
   <article class="topic topic3 easy-box">
     <h4>Dificuldade - Fácil</h4>
-    <ul class="dificulty">
+    <dl class="dificulty">
       <% @easy_recipes.each do |recipe| %>
-        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+        <dt><%= link_to recipe.title, recipe_path(recipe) %></dt>
       <% end %>
-    </ul>
+    </dl>
   </article>
 
   <articles class="topic topic4 medium-box">
     <h4>Dificuldade - Médio</h4>
-    <ul class="dificulty">
+    <dl class="dificulty">
       <% @medium_recipes.each do |recipe| %>
-        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+        <dt><%= link_to recipe.title, recipe_path(recipe) %></dt>
       <% end %>
-    </ul>
+    </dl>
   </article>
 
   <article class="topic topic5 hard-box">
     <h4>Dificuldade - Difícil </h4>
-    <ul class="dificulty">
+    <dl class="dificulty">
       <% @hard_recipes.each do |recipe| %>
-        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+        <dt><%= link_to recipe.title, recipe_path(recipe) %></dt>
       <% end %>
-    </ul>
+    </dl>
   </article>
 </main>
 
