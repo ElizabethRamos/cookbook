@@ -33,6 +33,10 @@ h1, p {
 
 }
 
+.full {
+  grid-column: 1 / -1;
+}
+
 .content {
 
 }
@@ -46,8 +50,8 @@ h1, p {
   grid-gap: 5px;
 }
 .wrapper > * {
-  background-color: #444;
-  color: #fff;
+  background-color: #eaece5;
+  color: #3b3a30;
   border-radius: 5px;
   padding: 20px;
   font-size: 150%;
@@ -56,11 +60,12 @@ h1, p {
 }
 
 .header, .footer {
+  background-color: #bdcebe;
   grid-column: 1 / -1;
 }
 
 .topic {
-  background-color: #555;
+  background-color: #9fa9a3;
   color: #eee;
   border-radius: 5px;
   padding: 20px;
